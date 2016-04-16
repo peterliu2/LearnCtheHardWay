@@ -17,3 +17,6 @@ tags
 # doxygen document file
 *.html
 *.png
+
+# log file
+*.log

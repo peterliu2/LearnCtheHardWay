@@ -1,0 +1,136 @@
+\hypertarget{shell_8h}{}\section{shell.\+h File Reference}
+\label{shell_8h}\index{shell.\+h@{shell.\+h}}
+
+
+shell header  
+
+
+{\ttfamily \#include $<$apr\+\_\+thread\+\_\+proc.\+h$>$}\\*
+Include dependency graph for shell.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{shell_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{shell_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structShell}{Shell}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{shell_8h_a0ad0666a1726541270e5b2a3594f242c}{}\#define {\bfseries M\+A\+X\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+A\+R\+G\+S}~100\label{shell_8h_a0ad0666a1726541270e5b2a3594f242c}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{shell_8h_a5a458a7123d8cffb7cb2fce306bad661}{}typedef struct \hyperlink{structShell}{Shell} {\bfseries Shell}\label{shell_8h_a5a458a7123d8cffb7cb2fce306bad661}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{shell_8h_acda27d63b5d5da99f9b12d52f376b006}{Shell\+\_\+run} (apr\+\_\+pool\+\_\+t $\ast$p, \hyperlink{structShell}{Shell} $\ast$cmd)
+\begin{DoxyCompactList}\small\item\em shell run \end{DoxyCompactList}\item 
+int \hyperlink{shell_8h_acd5077414441ce4297b163ccdba1c1d4}{Shell\+\_\+exec} (\hyperlink{structShell}{Shell} cmd,...)
+\begin{DoxyCompactList}\small\item\em shell execute \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{shell_8h_ac8575ca18e0cd8a397ecf8703d0a1e2e}{}\hyperlink{structShell}{Shell} {\bfseries C\+L\+E\+A\+N\+U\+P\+\_\+\+S\+H}\label{shell_8h_ac8575ca18e0cd8a397ecf8703d0a1e2e}
+
+\item 
+\hypertarget{shell_8h_a16b33613717f72f8845944f362a8e92f}{}\hyperlink{structShell}{Shell} {\bfseries G\+I\+T\+\_\+\+S\+H}\label{shell_8h_a16b33613717f72f8845944f362a8e92f}
+
+\item 
+\hypertarget{shell_8h_ac58f37e9e100ffc67d216b23aeb70185}{}\hyperlink{structShell}{Shell} {\bfseries T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+H}\label{shell_8h_ac58f37e9e100ffc67d216b23aeb70185}
+
+\item 
+\hypertarget{shell_8h_aa0b669cfcbe7b7ba61c39ca7cfbc3b16}{}\hyperlink{structShell}{Shell} {\bfseries T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+H}\label{shell_8h_aa0b669cfcbe7b7ba61c39ca7cfbc3b16}
+
+\item 
+\hypertarget{shell_8h_a346ec2013949bbb903b144afbea185a7}{}\hyperlink{structShell}{Shell} {\bfseries C\+U\+R\+L\+\_\+\+S\+H}\label{shell_8h_a346ec2013949bbb903b144afbea185a7}
+
+\item 
+\hypertarget{shell_8h_a0b00c62afcd9cbe9ddcafd077958746e}{}\hyperlink{structShell}{Shell} {\bfseries C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+S\+H}\label{shell_8h_a0b00c62afcd9cbe9ddcafd077958746e}
+
+\item 
+\hypertarget{shell_8h_a5b265c6270c71a773cc4af9e3ced813a}{}\hyperlink{structShell}{Shell} {\bfseries M\+A\+K\+E\+\_\+\+S\+H}\label{shell_8h_a5b265c6270c71a773cc4af9e3ced813a}
+
+\item 
+\hypertarget{shell_8h_a237379db14a3952deeb7e942a49e4e2b}{}\hyperlink{structShell}{Shell} {\bfseries I\+N\+S\+T\+A\+L\+L\+\_\+\+S\+H}\label{shell_8h_a237379db14a3952deeb7e942a49e4e2b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+shell header 
+
+\begin{DoxyAuthor}{Author}
+peter liu \href{mailto:peter.liu.work@gmail.com.tw}{\tt peter.\+liu.\+work@gmail.\+com.\+tw} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/04-\/10 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{shell_8h_acd5077414441ce4297b163ccdba1c1d4}{}\index{shell.\+h@{shell.\+h}!Shell\+\_\+exec@{Shell\+\_\+exec}}
+\index{Shell\+\_\+exec@{Shell\+\_\+exec}!shell.\+h@{shell.\+h}}
+\subsubsection[{Shell\+\_\+exec}]{\setlength{\rightskip}{0pt plus 5cm}int Shell\+\_\+exec (
+\begin{DoxyParamCaption}
+\item[{{\bf Shell}}]{template, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{shell_8h_acd5077414441ce4297b163ccdba1c1d4}
+
+
+shell execute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em template} & shell command template \\
+\hline
+{\em ...} & shell command arguments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: execute finish successfully ~\newline
+{\bfseries -\/1}\+: error 
+\end{DoxyReturn}
+\hypertarget{shell_8h_acda27d63b5d5da99f9b12d52f376b006}{}\index{shell.\+h@{shell.\+h}!Shell\+\_\+run@{Shell\+\_\+run}}
+\index{Shell\+\_\+run@{Shell\+\_\+run}!shell.\+h@{shell.\+h}}
+\subsubsection[{Shell\+\_\+run}]{\setlength{\rightskip}{0pt plus 5cm}int Shell\+\_\+run (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{{\bf Shell} $\ast$}]{cmd}
+\end{DoxyParamCaption}
+)}\label{shell_8h_acda27d63b5d5da99f9b12d52f376b006}
+
+
+shell run 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em cmd} & shell command\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: run finish successfully ~\newline
+{\bfseries -\/1}\+: error 
+\end{DoxyReturn}

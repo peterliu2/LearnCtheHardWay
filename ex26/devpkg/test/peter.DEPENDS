@@ -1,0 +1,5 @@
+git://git.kernel.org/pub/scm/devel/sparse/sparse.git
+http://apache.stu.edu.tw/apr/apr-1.5.2.tar.gz
+http://apache.stu.edu.tw/apr/apr-util-1.5.4.tar.gz --with-apr=/usr/local/apr NULL NULL
+http://apache.stu.edu.tw/apr/apr-1.5.2.tar.bz2
+http://apache.stu.edu.tw/apr/apr-util-1.5.4.tar.bz2 --with-apr=/usr/local/apr NULL NULL

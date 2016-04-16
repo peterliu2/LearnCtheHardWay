@@ -1,0 +1,106 @@
+\hypertarget{devpkg_8c}{}\section{devpkg.\+c File Reference}
+\label{devpkg_8c}\index{devpkg.\+c@{devpkg.\+c}}
+
+
+Packages manage main function.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$apr\+\_\+general.\+h$>$}\\*
+{\ttfamily \#include $<$apr\+\_\+getopt.\+h$>$}\\*
+{\ttfamily \#include $<$apr\+\_\+strings.\+h$>$}\\*
+{\ttfamily \#include $<$apr\+\_\+lib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}../../common/include/dbg.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}db.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}commands.\+h\char`\"{}}\\*
+Include dependency graph for devpkg.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{devpkg_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{devpkg_8c_af7ef5f2536930730d1baa596db61c0f9}{C\+L\+I\+\_\+\+C\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+S\+A\+G\+E\+\_\+\+S\+T\+R\+I\+N\+G}~\char`\"{}Invail command given.\textbackslash{}n\textbackslash{}t\+Usage\+: \%s -\/I url $\vert$ -\/L $\vert$ -\/c url $\vert$ -\/m url $\vert$ -\/i url $\vert$ -\/S $\vert$ -\/ F url $\vert$ -\/B url\char`\"{}, argv\mbox{[}0\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{devpkg_8c_ac3e5abe2b43f4085d248ea8728fd45b9}{main} (int argc, const char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char const $\ast$ \hyperlink{devpkg_8c_a4ad9a452e6dcd0b44079e4e68716663a}{Command\+\_\+type\+\_\+names} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em command name string for debug only \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Packages manage main function. 
+
+\begin{DoxyAuthor}{Author}
+peter liu \href{mailto:peter.liu.work@gmail.com.tw}{\tt peter.\+liu.\+work@gmail.\+com.\+tw} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/04-\/13 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{devpkg_8c_af7ef5f2536930730d1baa596db61c0f9}{}\index{devpkg.\+c@{devpkg.\+c}!C\+L\+I\+\_\+\+C\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+S\+A\+G\+E\+\_\+\+S\+T\+R\+I\+N\+G@{C\+L\+I\+\_\+\+C\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+S\+A\+G\+E\+\_\+\+S\+T\+R\+I\+N\+G}}
+\index{C\+L\+I\+\_\+\+C\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+S\+A\+G\+E\+\_\+\+S\+T\+R\+I\+N\+G@{C\+L\+I\+\_\+\+C\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+S\+A\+G\+E\+\_\+\+S\+T\+R\+I\+N\+G}!devpkg.\+c@{devpkg.\+c}}
+\subsubsection[{C\+L\+I\+\_\+\+C\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+S\+A\+G\+E\+\_\+\+S\+T\+R\+I\+N\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+I\+\_\+\+C\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+S\+A\+G\+E\+\_\+\+S\+T\+R\+I\+N\+G~\char`\"{}Invail command given.\textbackslash{}n\textbackslash{}t\+Usage\+: \%s -\/I url $\vert$ -\/L $\vert$ -\/c url $\vert$ -\/m url $\vert$ -\/i url $\vert$ -\/S $\vert$ -\/ F url $\vert$ -\/B url\char`\"{}, argv\mbox{[}0\mbox{]}}\label{devpkg_8c_af7ef5f2536930730d1baa596db61c0f9}
+command line error message\+: devpkg usage 
+
+\subsection{Function Documentation}
+\hypertarget{devpkg_8c_ac3e5abe2b43f4085d248ea8728fd45b9}{}\index{devpkg.\+c@{devpkg.\+c}!main@{main}}
+\index{main@{main}!devpkg.\+c@{devpkg.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{const char const $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{devpkg_8c_ac3e5abe2b43f4085d248ea8728fd45b9}
+
+
+main function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv\mbox{[}$\,$\mbox{]}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{devpkg_8c_a4ad9a452e6dcd0b44079e4e68716663a}{}\index{devpkg.\+c@{devpkg.\+c}!Command\+\_\+type\+\_\+names@{Command\+\_\+type\+\_\+names}}
+\index{Command\+\_\+type\+\_\+names@{Command\+\_\+type\+\_\+names}!devpkg.\+c@{devpkg.\+c}}
+\subsubsection[{Command\+\_\+type\+\_\+names}]{\setlength{\rightskip}{0pt plus 5cm}const char const$\ast$ Command\+\_\+type\+\_\+names\mbox{[}$\,$\mbox{]}}\label{devpkg_8c_a4ad9a452e6dcd0b44079e4e68716663a}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \textcolor{stringliteral}{"COMMAND\_NONE"},
+    \textcolor{stringliteral}{"COMMAND\_INSTALL"},
+    \textcolor{stringliteral}{"COMMAND\_LIST"},
+    \textcolor{stringliteral}{"COMMAND\_FETCH"},
+    \textcolor{stringliteral}{"COMMAND\_INIT"},
+    \textcolor{stringliteral}{"COMMAMD\_BUILD"},
+    \textcolor{stringliteral}{"COMMAMD\_DEPS"}
+\}
+\end{DoxyCode}
+
+
+command name string for debug only 
+

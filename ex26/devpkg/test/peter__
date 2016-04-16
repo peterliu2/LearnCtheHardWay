@@ -1,0 +1,2 @@
+http://apache.stu.edu.tw/apr/apr-1.5.2.tar.gz NULL NULL NULL
+http://apache.stu.edu.tw/apr/apr-util-1.5.4.tar.gz --with-apr=/usr/local/apr NULL NULL

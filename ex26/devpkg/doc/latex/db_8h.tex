@@ -1,0 +1,131 @@
+\hypertarget{db_8h}{}\section{db.\+h File Reference}
+\label{db_8h}\index{db.\+h@{db.\+h}}
+
+
+database  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{db_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{db_8h_aee925031172607ff8d5cf8b68374bd7f}{D\+B\+\_\+\+F\+I\+L\+E}~\char`\"{}/usr/local/.devpkg/db\char`\"{}
+\item 
+\#define \hyperlink{db_8h_ae23024310783ea0e70a78c70b8896a2e}{D\+B\+\_\+\+D\+I\+R}~\char`\"{}/usr/local/.devpkg\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{db_8h_a68f3866a342eb53891f951753294b36a}{D\+B\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em database initialize \end{DoxyCompactList}\item 
+int \hyperlink{db_8h_a664f1e650653baa531fbd0de70ad6c5e}{D\+B\+\_\+list} (void)
+\begin{DoxyCompactList}\small\item\em database list it\textquotesingle{}s contents \end{DoxyCompactList}\item 
+int \hyperlink{db_8h_aa82653649df4b8d4f53bb91547e3cd86}{D\+B\+\_\+update} (const char $\ast$url)
+\begin{DoxyCompactList}\small\item\em database update \end{DoxyCompactList}\item 
+int \hyperlink{db_8h_a191bcd1e638af8c3f86e7aafd8483315}{D\+B\+\_\+find} (const char $\ast$url)
+\begin{DoxyCompactList}\small\item\em find database to input url \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+database 
+
+\begin{DoxyAuthor}{Author}
+peter liu \href{mailto:peter.liu.work@gmail.com.tw}{\tt peter.\+liu.\+work@gmail.\+com.\+tw} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/04-\/13 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{db_8h_ae23024310783ea0e70a78c70b8896a2e}{}\index{db.\+h@{db.\+h}!D\+B\+\_\+\+D\+I\+R@{D\+B\+\_\+\+D\+I\+R}}
+\index{D\+B\+\_\+\+D\+I\+R@{D\+B\+\_\+\+D\+I\+R}!db.\+h@{db.\+h}}
+\subsubsection[{D\+B\+\_\+\+D\+I\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+B\+\_\+\+D\+I\+R~\char`\"{}/usr/local/.devpkg\char`\"{}}\label{db_8h_ae23024310783ea0e70a78c70b8896a2e}
+database directory path \hypertarget{db_8h_aee925031172607ff8d5cf8b68374bd7f}{}\index{db.\+h@{db.\+h}!D\+B\+\_\+\+F\+I\+L\+E@{D\+B\+\_\+\+F\+I\+L\+E}}
+\index{D\+B\+\_\+\+F\+I\+L\+E@{D\+B\+\_\+\+F\+I\+L\+E}!db.\+h@{db.\+h}}
+\subsubsection[{D\+B\+\_\+\+F\+I\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+B\+\_\+\+F\+I\+L\+E~\char`\"{}/usr/local/.devpkg/db\char`\"{}}\label{db_8h_aee925031172607ff8d5cf8b68374bd7f}
+databae file path 
+
+\subsection{Function Documentation}
+\hypertarget{db_8h_a191bcd1e638af8c3f86e7aafd8483315}{}\index{db.\+h@{db.\+h}!D\+B\+\_\+find@{D\+B\+\_\+find}}
+\index{D\+B\+\_\+find@{D\+B\+\_\+find}!db.\+h@{db.\+h}}
+\subsubsection[{D\+B\+\_\+find}]{\setlength{\rightskip}{0pt plus 5cm}int D\+B\+\_\+find (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{url}
+\end{DoxyParamCaption}
+)}\label{db_8h_a191bcd1e638af8c3f86e7aafd8483315}
+
+
+find database to input url 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & usl to find\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: url can\textquotesingle{}t find in database ~\newline
+{\bfseries 1}\+: url find in data base ~\newline
+{\bfseries -\/1}\+: error -\/ url is N\+U\+L\+L ~\newline
+{\bfseries -\/2}\+: bstring allocate memory failed ~\newline
+{\bfseries -\/3}\+: error -\/ datebase can\textquotesingle{}t load 
+\end{DoxyReturn}
+\hypertarget{db_8h_a68f3866a342eb53891f951753294b36a}{}\index{db.\+h@{db.\+h}!D\+B\+\_\+init@{D\+B\+\_\+init}}
+\index{D\+B\+\_\+init@{D\+B\+\_\+init}!db.\+h@{db.\+h}}
+\subsubsection[{D\+B\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}int D\+B\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{db_8h_a68f3866a342eb53891f951753294b36a}
+
+
+database initialize 
+
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: database initialize successfully ~\newline
+{\bfseries -\/1}\+: Otherwies 
+\end{DoxyReturn}
+\hypertarget{db_8h_a664f1e650653baa531fbd0de70ad6c5e}{}\index{db.\+h@{db.\+h}!D\+B\+\_\+list@{D\+B\+\_\+list}}
+\index{D\+B\+\_\+list@{D\+B\+\_\+list}!db.\+h@{db.\+h}}
+\subsubsection[{D\+B\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}int D\+B\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{db_8h_a664f1e650653baa531fbd0de70ad6c5e}
+
+
+database list it\textquotesingle{}s contents 
+
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: List success ~\newline
+{\bfseries -\/1}\+: Otherwise 
+\end{DoxyReturn}
+\hypertarget{db_8h_aa82653649df4b8d4f53bb91547e3cd86}{}\index{db.\+h@{db.\+h}!D\+B\+\_\+update@{D\+B\+\_\+update}}
+\index{D\+B\+\_\+update@{D\+B\+\_\+update}!db.\+h@{db.\+h}}
+\subsubsection[{D\+B\+\_\+update}]{\setlength{\rightskip}{0pt plus 5cm}int D\+B\+\_\+update (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{url}
+\end{DoxyParamCaption}
+)}\label{db_8h_aa82653649df4b8d4f53bb91547e3cd86}
+
+
+database update 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & url to update\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: database update success ~\newline
+{\bfseries -\/1}\+: database update fail 
+\end{DoxyReturn}

@@ -1,0 +1,232 @@
+\hypertarget{commands_8h}{}\section{commands.\+h File Reference}
+\label{commands_8h}\index{commands.\+h@{commands.\+h}}
+
+
+commands  
+
+
+{\ttfamily \#include $<$apr\+\_\+pools.\+h$>$}\\*
+Include dependency graph for commands.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{commands_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{commands_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{commands_8h_ab9120c5dbc121bc45a0cdd133e291379}{D\+E\+P\+E\+N\+D\+S\+\_\+\+P\+A\+T\+H}~\char`\"{}/tmp/D\+E\+P\+E\+N\+D\+S\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_a9c2aedcf20beed95d9f94e54a5b98c77}{T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+R\+C}~\char`\"{}/tmp/pkg-\/src.\+tar.\+gz\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_af71a088f27cf2ef8f751d81273078c68}{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+R\+C}~\char`\"{}/tmp/pkg-\/src.\+tar.\+bz2\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_a40ae373788da1701b1df883e62b46373}{B\+U\+I\+L\+D\+\_\+\+D\+I\+R}~\char`\"{}/tmp/pkg-\/build\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_a8cabfe3e73eed8ee4083b7118086f140}{G\+I\+T\+\_\+\+P\+A\+T}~\char`\"{}$\ast$.git\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_a358f5b64984880fa59ea893e449fc3bb}{D\+E\+P\+E\+N\+D\+\_\+\+P\+A\+T}~\char`\"{}$\ast$D\+E\+P\+E\+N\+D\+S\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_afaa18bb2bbdb4a50196ec414bd0e1227}{T\+A\+R\+\_\+\+G\+Z\+\_\+\+P\+A\+T}~\char`\"{}$\ast$.tar.\+gz\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_acc3e9a00f81bb887a0dfbf6648467e6b}{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+P\+A\+T}~\char`\"{}$\ast$.tar.\+bz2\char`\"{}
+\item 
+\#define \hyperlink{commands_8h_ab780866c2a8435a305bc8fe7e6ee688a}{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+R\+I\+P\+T}~\char`\"{}/tmp/pkg-\/build/configure\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{commands_8h_a21e038f5b8958e203d28bc4f18472352}{}enum \hyperlink{commands_8h_a21e038f5b8958e203d28bc4f18472352}{Command\+Type} \{ \\*
+{\bfseries C\+O\+M\+M\+A\+N\+D\+\_\+\+N\+O\+N\+E}, 
+{\bfseries C\+O\+M\+M\+A\+N\+D\+\_\+\+I\+N\+S\+T\+A\+L\+L}, 
+{\bfseries C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+I\+S\+T}, 
+{\bfseries C\+O\+M\+M\+A\+N\+D\+\_\+\+F\+E\+T\+C\+H}, 
+\\*
+{\bfseries C\+O\+M\+M\+A\+N\+D\+\_\+\+I\+N\+I\+T}, 
+{\bfseries C\+O\+M\+M\+A\+M\+D\+\_\+\+B\+U\+I\+L\+D}, 
+{\bfseries C\+O\+M\+M\+A\+M\+D\+\_\+\+D\+E\+P\+S}
+ \}\label{commands_8h_a21e038f5b8958e203d28bc4f18472352}
+
+\begin{DoxyCompactList}\small\item\em commands \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{commands_8h_affbc6091a8bd093b418d1701bc2f7307}{Command\+\_\+fetch} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$url, int fetch\+\_\+only)
+\begin{DoxyCompactList}\small\item\em fetch package from url \end{DoxyCompactList}\item 
+int \hyperlink{commands_8h_af384b213993ba94ca4f7e0492a544135}{Command\+\_\+install} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$url, const char $\ast$configure\+\_\+opts, const char $\ast$make\+\_\+opts, const char $\ast$install\+\_\+opts)
+\begin{DoxyCompactList}\small\item\em Install package command. \end{DoxyCompactList}\item 
+int \hyperlink{commands_8h_a8f5695cbe4457871b9ac8a7f686e93e9}{Command\+\_\+depends} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em install all depends package for path \end{DoxyCompactList}\item 
+int \hyperlink{commands_8h_a6910667dba531ef95fc0a445bdbf0141}{Command\+\_\+build} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$url, const char $\ast$configure\+\_\+opts, const char $\ast$make\+\_\+opts, const char $\ast$install\+\_\+opts)
+\begin{DoxyCompactList}\small\item\em build package from url \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+commands 
+
+\begin{DoxyAuthor}{Author}
+peter liu \href{mailto:peter.liu.work@gmail.com.tw}{\tt peter.\+liu.\+work@gmail.\+com.\+tw} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/04-\/13 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{commands_8h_a40ae373788da1701b1df883e62b46373}{}\index{commands.\+h@{commands.\+h}!B\+U\+I\+L\+D\+\_\+\+D\+I\+R@{B\+U\+I\+L\+D\+\_\+\+D\+I\+R}}
+\index{B\+U\+I\+L\+D\+\_\+\+D\+I\+R@{B\+U\+I\+L\+D\+\_\+\+D\+I\+R}!commands.\+h@{commands.\+h}}
+\subsubsection[{B\+U\+I\+L\+D\+\_\+\+D\+I\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+I\+L\+D\+\_\+\+D\+I\+R~\char`\"{}/tmp/pkg-\/build\char`\"{}}\label{commands_8h_a40ae373788da1701b1df883e62b46373}
+package build directory \hypertarget{commands_8h_ab780866c2a8435a305bc8fe7e6ee688a}{}\index{commands.\+h@{commands.\+h}!C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+R\+I\+P\+T@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+R\+I\+P\+T}}
+\index{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+R\+I\+P\+T@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+R\+I\+P\+T}!commands.\+h@{commands.\+h}}
+\subsubsection[{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+R\+I\+P\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+R\+I\+P\+T~\char`\"{}/tmp/pkg-\/build/configure\char`\"{}}\label{commands_8h_ab780866c2a8435a305bc8fe7e6ee688a}
+package configure script file location \hypertarget{commands_8h_a358f5b64984880fa59ea893e449fc3bb}{}\index{commands.\+h@{commands.\+h}!D\+E\+P\+E\+N\+D\+\_\+\+P\+A\+T@{D\+E\+P\+E\+N\+D\+\_\+\+P\+A\+T}}
+\index{D\+E\+P\+E\+N\+D\+\_\+\+P\+A\+T@{D\+E\+P\+E\+N\+D\+\_\+\+P\+A\+T}!commands.\+h@{commands.\+h}}
+\subsubsection[{D\+E\+P\+E\+N\+D\+\_\+\+P\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+P\+E\+N\+D\+\_\+\+P\+A\+T~\char`\"{}$\ast$D\+E\+P\+E\+N\+D\+S\char`\"{}}\label{commands_8h_a358f5b64984880fa59ea893e449fc3bb}
+$\ast$.depends url pattern \hypertarget{commands_8h_ab9120c5dbc121bc45a0cdd133e291379}{}\index{commands.\+h@{commands.\+h}!D\+E\+P\+E\+N\+D\+S\+\_\+\+P\+A\+T\+H@{D\+E\+P\+E\+N\+D\+S\+\_\+\+P\+A\+T\+H}}
+\index{D\+E\+P\+E\+N\+D\+S\+\_\+\+P\+A\+T\+H@{D\+E\+P\+E\+N\+D\+S\+\_\+\+P\+A\+T\+H}!commands.\+h@{commands.\+h}}
+\subsubsection[{D\+E\+P\+E\+N\+D\+S\+\_\+\+P\+A\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+P\+E\+N\+D\+S\+\_\+\+P\+A\+T\+H~\char`\"{}/tmp/D\+E\+P\+E\+N\+D\+S\char`\"{}}\label{commands_8h_ab9120c5dbc121bc45a0cdd133e291379}
+depends directory \hypertarget{commands_8h_a8cabfe3e73eed8ee4083b7118086f140}{}\index{commands.\+h@{commands.\+h}!G\+I\+T\+\_\+\+P\+A\+T@{G\+I\+T\+\_\+\+P\+A\+T}}
+\index{G\+I\+T\+\_\+\+P\+A\+T@{G\+I\+T\+\_\+\+P\+A\+T}!commands.\+h@{commands.\+h}}
+\subsubsection[{G\+I\+T\+\_\+\+P\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+I\+T\+\_\+\+P\+A\+T~\char`\"{}$\ast$.git\char`\"{}}\label{commands_8h_a8cabfe3e73eed8ee4083b7118086f140}
+$\ast$.git url pattern \hypertarget{commands_8h_acc3e9a00f81bb887a0dfbf6648467e6b}{}\index{commands.\+h@{commands.\+h}!T\+A\+R\+\_\+\+B\+Z2\+\_\+\+P\+A\+T@{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+P\+A\+T}}
+\index{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+P\+A\+T@{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+P\+A\+T}!commands.\+h@{commands.\+h}}
+\subsubsection[{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+P\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+A\+R\+\_\+\+B\+Z2\+\_\+\+P\+A\+T~\char`\"{}$\ast$.tar.\+bz2\char`\"{}}\label{commands_8h_acc3e9a00f81bb887a0dfbf6648467e6b}
+$\ast$.tar.\+bz2 url pattern \hypertarget{commands_8h_af71a088f27cf2ef8f751d81273078c68}{}\index{commands.\+h@{commands.\+h}!T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+R\+C@{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+R\+C}}
+\index{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+R\+C@{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+R\+C}!commands.\+h@{commands.\+h}}
+\subsubsection[{T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+R\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+A\+R\+\_\+\+B\+Z2\+\_\+\+S\+R\+C~\char`\"{}/tmp/pkg-\/src.\+tar.\+bz2\char`\"{}}\label{commands_8h_af71a088f27cf2ef8f751d81273078c68}
+$\ast$.tar.\+bz2 package source directory \hypertarget{commands_8h_afaa18bb2bbdb4a50196ec414bd0e1227}{}\index{commands.\+h@{commands.\+h}!T\+A\+R\+\_\+\+G\+Z\+\_\+\+P\+A\+T@{T\+A\+R\+\_\+\+G\+Z\+\_\+\+P\+A\+T}}
+\index{T\+A\+R\+\_\+\+G\+Z\+\_\+\+P\+A\+T@{T\+A\+R\+\_\+\+G\+Z\+\_\+\+P\+A\+T}!commands.\+h@{commands.\+h}}
+\subsubsection[{T\+A\+R\+\_\+\+G\+Z\+\_\+\+P\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+A\+R\+\_\+\+G\+Z\+\_\+\+P\+A\+T~\char`\"{}$\ast$.tar.\+gz\char`\"{}}\label{commands_8h_afaa18bb2bbdb4a50196ec414bd0e1227}
+$\ast$.tar.\+gz url pattern \hypertarget{commands_8h_a9c2aedcf20beed95d9f94e54a5b98c77}{}\index{commands.\+h@{commands.\+h}!T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+R\+C@{T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+R\+C}}
+\index{T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+R\+C@{T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+R\+C}!commands.\+h@{commands.\+h}}
+\subsubsection[{T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+R\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+A\+R\+\_\+\+G\+Z\+\_\+\+S\+R\+C~\char`\"{}/tmp/pkg-\/src.\+tar.\+gz\char`\"{}}\label{commands_8h_a9c2aedcf20beed95d9f94e54a5b98c77}
+$\ast$.tar.\+gz package source directory 
+
+\subsection{Function Documentation}
+\hypertarget{commands_8h_a6910667dba531ef95fc0a445bdbf0141}{}\index{commands.\+h@{commands.\+h}!Command\+\_\+build@{Command\+\_\+build}}
+\index{Command\+\_\+build@{Command\+\_\+build}!commands.\+h@{commands.\+h}}
+\subsubsection[{Command\+\_\+build}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+build (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{url, }
+\item[{const char $\ast$}]{configure\+\_\+opts, }
+\item[{const char $\ast$}]{make\+\_\+opts, }
+\item[{const char $\ast$}]{install\+\_\+opts}
+\end{DoxyParamCaption}
+)}\label{commands_8h_a6910667dba531ef95fc0a445bdbf0141}
+
+
+build package from url 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em url} & url to build \\
+\hline
+{\em configure\+\_\+opts} & configure options \\
+\hline
+{\em make\+\_\+opts} & make options \\
+\hline
+{\em install\+\_\+opts} & install options\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: build, make, install, cleanup, and database update successfully ~\newline
+{\bfseries -\/1}\+: otherwise 
+\end{DoxyReturn}
+\hypertarget{commands_8h_a8f5695cbe4457871b9ac8a7f686e93e9}{}\index{commands.\+h@{commands.\+h}!Command\+\_\+depends@{Command\+\_\+depends}}
+\index{Command\+\_\+depends@{Command\+\_\+depends}!commands.\+h@{commands.\+h}}
+\subsubsection[{Command\+\_\+depends}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+depends (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{commands_8h_a8f5695cbe4457871b9ac8a7f686e93e9}
+
+
+install all depends package for path 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em path} & depends file path which contains a url per line\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: All dependes are installed successfully ~\newline
+{\bfseries -\/1}\+: Otherwise 
+\end{DoxyReturn}
+\hypertarget{commands_8h_affbc6091a8bd093b418d1701bc2f7307}{}\index{commands.\+h@{commands.\+h}!Command\+\_\+fetch@{Command\+\_\+fetch}}
+\index{Command\+\_\+fetch@{Command\+\_\+fetch}!commands.\+h@{commands.\+h}}
+\subsubsection[{Command\+\_\+fetch}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+fetch (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{url, }
+\item[{int}]{fetch\+\_\+only}
+\end{DoxyParamCaption}
+)}\label{commands_8h_affbc6091a8bd093b418d1701bc2f7307}
+
+
+fetch package from url 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em url} & url to fetch \\
+\hline
+{\em fetch\+\_\+only} & fetch only\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 1}\+: fetch success, need to build \& install ~\newline
+{\bfseries 0}\+: fetch success, nothing to do ~\newline
+{\bfseries -\/1}\+: fetch error 
+\end{DoxyReturn}
+\hypertarget{commands_8h_af384b213993ba94ca4f7e0492a544135}{}\index{commands.\+h@{commands.\+h}!Command\+\_\+install@{Command\+\_\+install}}
+\index{Command\+\_\+install@{Command\+\_\+install}!commands.\+h@{commands.\+h}}
+\subsubsection[{Command\+\_\+install}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+install (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{url, }
+\item[{const char $\ast$}]{configure\+\_\+opts, }
+\item[{const char $\ast$}]{make\+\_\+opts, }
+\item[{const char $\ast$}]{install\+\_\+opts}
+\end{DoxyParamCaption}
+)}\label{commands_8h_af384b213993ba94ca4f7e0492a544135}
+
+
+Install package command. 
+
+The package come from input parameter \+: url
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em url} & package url \\
+\hline
+{\em configure\+\_\+opts} & configure options \\
+\hline
+{\em make\+\_\+opts} & make options \\
+\hline
+{\em install\+\_\+opts} & install options\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: install sucess ~\newline
+{\bfseries -\/1}\+: install fail 
+\end{DoxyReturn}

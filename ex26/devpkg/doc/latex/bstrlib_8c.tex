@@ -1,0 +1,1223 @@
+\hypertarget{bstrlib_8c}{}\section{bstrlib.\+c File Reference}
+\label{bstrlib_8c}\index{bstrlib.\+c@{bstrlib.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stddef.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}bstrlib.\+h\char`\"{}}\\*
+Include dependency graph for bstrlib.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bstrlib_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcharField}{char\+Field}
+\item 
+struct \hyperlink{structbStream}{b\+Stream}
+\item 
+struct \hyperlink{structgenBstrList}{gen\+Bstr\+List}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bstrlib_8c_a39afa9df7a3d3dc5eb8fecfe03c681d3}{bstr\+\_\+\+\_\+alloc}(x)~malloc (x)
+\item 
+\#define \hyperlink{bstrlib_8c_a1d097ca5b1d9f9b15c06bd39538c4e0b}{bstr\+\_\+\+\_\+free}(p)~free (p)
+\item 
+\#define \hyperlink{bstrlib_8c_a00e2cadf83d23455793b6d432d936476}{bstr\+\_\+\+\_\+realloc}(p,  x)~realloc ((p), (x))
+\item 
+\#define \hyperlink{bstrlib_8c_a680540cb26267f721e52a80e4c975d4b}{bstr\+\_\+\+\_\+memcpy}(d,  s,  l)~memcpy ((d), (s), (l))
+\item 
+\#define \hyperlink{bstrlib_8c_afbaa090340e7f7b7677b5c47d40f0800}{bstr\+\_\+\+\_\+memmove}(d,  s,  l)~memmove ((d), (s), (l))
+\item 
+\#define \hyperlink{bstrlib_8c_a98bdadc77e82f814058362c0f59f33bb}{bstr\+\_\+\+\_\+memset}(d,  c,  l)~memset ((d), (c), (l))
+\item 
+\#define \hyperlink{bstrlib_8c_aab40310eb4a16a4d7c0fa677743dfa73}{bstr\+\_\+\+\_\+memcmp}(d,  c,  l)~memcmp ((d), (c), (l))
+\item 
+\#define \hyperlink{bstrlib_8c_afc195354bd8f94ed2e0b373ed85658ad}{bstr\+\_\+\+\_\+memchr}(s,  c,  l)~memchr ((s), (c), (l))
+\item 
+\#define \hyperlink{bstrlib_8c_ad8e62d1208249eb2b50022fc16fa4f9e}{b\+Block\+Copy}(D,  S,  L)~\{ if ((L) $>$ 0) \hyperlink{bstrlib_8c_afbaa090340e7f7b7677b5c47d40f0800}{bstr\+\_\+\+\_\+memmove} ((D),(S),(L)); \}
+\item 
+\#define \hyperlink{bstrlib_8c_a7888edb3637a7bd451df0ba2add84893}{upcase}(c)~(toupper ((unsigned char) c))
+\item 
+\#define \hyperlink{bstrlib_8c_a25982c3a2e7aea6580985a5da4d6c276}{downcase}(c)~(tolower ((unsigned char) c))
+\item 
+\#define \hyperlink{bstrlib_8c_aa2515fc6722e119738d604c68bfcf48e}{wspace}(c)~(isspace ((unsigned char) c))
+\item 
+\#define \hyperlink{bstrlib_8c_a66913ef35962021d9153f9c61ad32620}{L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}~(3)
+\item 
+\#define \hyperlink{bstrlib_8c_a20503543a540058081d60fb0b33c472d}{L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}~(1 $<$$<$ \hyperlink{bstrlib_8c_a66913ef35962021d9153f9c61ad32620}{L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y})
+\item 
+\#define \hyperlink{bstrlib_8c_aadeaa627bb705a303b5c952c2bdebdad}{L\+O\+N\+G\+\_\+\+T\+Y\+P\+E}~unsigned char
+\item 
+\#define \hyperlink{bstrlib_8c_aafa32b69f3240364a4dc12023cc182d2}{C\+F\+C\+L\+E\+N}~((1 $<$$<$ C\+H\+A\+R\+\_\+\+B\+I\+T) / \hyperlink{bstrlib_8c_a20503543a540058081d60fb0b33c472d}{L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y})
+\item 
+\#define \hyperlink{bstrlib_8c_ab01505af6547ff9a565d7542d5225f71}{test\+In\+Char\+Field}(cf,  c)
+\item 
+\#define \hyperlink{bstrlib_8c_a607344e9234f1fba567f16a29cde7952}{set\+In\+Char\+Field}(cf,  idx)
+\item 
+\#define \hyperlink{bstrlib_8c_a0330c9819e160d4b551ddaed00b7daae}{I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+F\+I\+N\+D\+\_\+\+I\+N\+D\+E\+X\+\_\+\+C\+O\+U\+N\+T}~32
+\item 
+\#define \hyperlink{bstrlib_8c_a68722d687b9e276d48ebd056d9a88a89}{B\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+Z}~(1024)
+\item 
+\#define \hyperlink{bstrlib_8c_a139b8101e6a39238dcd4c290fb8a082e}{B\+S\+S\+S\+C\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N}~(256)
+\item 
+\#define \hyperlink{bstrlib_8c_ac334ab6503ef8c32581b8a1a554e1872}{exvsnprintf}(r,  b,  n,  f,  a)~\{r = vsnprintf (b,n,f,a);\}
+\item 
+\#define \hyperlink{bstrlib_8c_a2cfb5b720d1a59ebba99ec491da5ca35}{S\+T\+A\+R\+T\+\_\+\+V\+S\+N\+B\+U\+F\+F}~(16)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \hyperlink{bstrlib_8c_a80e531a6c8fba5895d57335bf3b46958}{instr\+\_\+fnptr}) (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} s1, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} s2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{bstrlib_8c_a71ca3b83ad803d719de83b9b95079da5}{balloc} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int olen)
+\item 
+int \hyperlink{bstrlib_8c_aa3215129c26370469f86aa38c5916377}{ballocmin} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int len)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_a323bad8fd30b7b8c3fd2ec17f26935d2}{bfromcstr} (const char $\ast$str)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_aab5e438626fafd82dc6954047854eafb}{bfromcstrrangealloc} (int minl, int maxl, const char $\ast$str)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_ab505e4ece683c289cc40bc271a7c7819}{bfromcstralloc} (int mlen, const char $\ast$str)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_a5cc74ee2cb8a63b665ad2fc6ff40cedb}{blk2bstr} (const void $\ast$blk, int len)
+\item 
+char $\ast$ \hyperlink{bstrlib_8c_ac6ee5c5fe4e1512cb74f37a51d9382f6}{bstr2cstr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, char z)
+\item 
+int \hyperlink{bstrlib_8c_aaefe0f9aede448c15b01d882ca977de5}{bcstrfree} (char $\ast$s)
+\item 
+int \hyperlink{bstrlib_8c_a4bb4f276df0187508359004c911ca47b}{bconcat} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b0, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_ab21dd77c743df60a682a720a8b981f24}{bconchar} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, char c)
+\item 
+int \hyperlink{bstrlib_8c_aa0a160e952140ea2228cffca365cc1e5}{bcatcstr} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, const char $\ast$s)
+\item 
+int \hyperlink{bstrlib_8c_a63aba7be9cac97b2423d0b7fe0ef2d3b}{bcatblk} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, const void $\ast$s, int len)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_ae5391e339f3f691d5bf8d37a4a71b74d}{bstrcpy} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_ad5308b535bf446078d2c51f7f1d4f755}{bassign} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} a, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_a1639f09e544d664a0ed0ad266d92afd4}{bassignmidstr} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} a, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, int left, int len)
+\item 
+int \hyperlink{bstrlib_8c_a0b113d975a350dafde41677492efad13}{bassigncstr} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} a, const char $\ast$str)
+\item 
+int \hyperlink{bstrlib_8c_aaa60afbe75d06825b7560551093e0e2c}{bassignblk} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} a, const void $\ast$s, int len)
+\item 
+int \hyperlink{bstrlib_8c_a840ac32e58f2a82fbf11995caad4ef12}{btrunc} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int n)
+\item 
+int \hyperlink{bstrlib_8c_a5f4dae8da932e725148da9c94f1fc153}{btoupper} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_a9898743a05a402207976442c9ee5fe44}{btolower} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_a35584e78a339b7150cc965e14a1edb11}{bstricmp} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_ae6d51d7ccd757acd1ad9e588a482fc2d}{bstrnicmp} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1, int n)
+\item 
+int \hyperlink{bstrlib_8c_afc72bf8164921d8ae3818efe6e4ccde0}{biseqcaselessblk} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, const void $\ast$blk, int len)
+\item 
+int \hyperlink{bstrlib_8c_a26e167d692cbbee16c80835b4d0ef455}{biseqcaseless} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_a9866e64c45e33ff489449e5ba1a32529}{bisstemeqcaselessblk} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, const void $\ast$blk, int len)
+\item 
+int \hyperlink{bstrlib_8c_a76b49922309adf99d0580e02f9db38da}{bltrimws} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_aa5be1156f9a247dc46d94908a80f8b92}{brtrimws} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_a72e2c44b7bad218940ab93b3fb8009c6}{btrimws} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_a3a63116987138cfa6d23b562ad578e2c}{biseqblk} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, const void $\ast$blk, int len)
+\item 
+int \hyperlink{bstrlib_8c_a348899d0efd767ef5f01a78a68e6acbc}{biseq} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_a0ce8042ddbf28c824d0fe76cd6073810}{bisstemeqblk} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, const void $\ast$blk, int len)
+\item 
+int \hyperlink{bstrlib_8c_ac42f98d977ae472ebb5286527afbf193}{biseqcstr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, const char $\ast$s)
+\item 
+int \hyperlink{bstrlib_8c_a178bf9ef1178cdc3865c4219ba818712}{biseqcstrcaseless} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, const char $\ast$s)
+\item 
+int \hyperlink{bstrlib_8c_a1685392efe5f5df7f1d8483ae940b31f}{bstrcmp} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_ac019a14f62fd791c35ffd7b4362a1a56}{bstrncmp} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1, int n)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_a88ae85f2a331e1ffc893c897e0af90c5}{bmidstr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, int left, int len)
+\item 
+int \hyperlink{bstrlib_8c_abc9e2b8145989db6bbef05634b717196}{bdelete} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int pos, int len)
+\item 
+int \hyperlink{bstrlib_8c_abebe200396d233cc3b732677e17f1087}{bdestroy} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_aa7ad93ebaf1f1357cf9c996d1a44e380}{binstr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b2)
+\item 
+int \hyperlink{bstrlib_8c_a32672d0f2ab78541099fd72b7c14b211}{binstrr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b2)
+\item 
+int \hyperlink{bstrlib_8c_abd24c58c12f8751444b7da4ba8254213}{binstrcaseless} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b2)
+\item 
+int \hyperlink{bstrlib_8c_a8a40513f41a46edf0aacb72c790028a8}{binstrrcaseless} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b2)
+\item 
+int \hyperlink{bstrlib_8c_afa2d60dbf98a719bba513547668965d9}{bstrchrp} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, int c, int pos)
+\item 
+int \hyperlink{bstrlib_8c_aa5ea6d1dd64510c42584cd6821bec9cd}{bstrrchrp} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b, int c, int pos)
+\item 
+int \hyperlink{bstrlib_8c_ad1e99261aecb78119ce018f22d4b9003}{binchr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_affb3b6d9713d65aa7b1c99f30b621aa2}{binchrr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_a9e8e6895817fcaa40211e5751ea8bebe}{bninchr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_ae3be1580398284fb344a5f5b005c583c}{bninchrr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b0, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1)
+\item 
+int \hyperlink{bstrlib_8c_ad21e2c3d2af8fac2e43632793f92ec0f}{bsetstr} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b0, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b1, unsigned char fill)
+\item 
+int \hyperlink{bstrlib_8c_ac63d3a19a84d108b4982a53c5c20c855}{binsertblk} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int pos, const void $\ast$blk, int len, unsigned char fill)
+\item 
+int \hyperlink{bstrlib_8c_aedbcd4314809a979760f8b6587627290}{binsert} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b1, int pos, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b2, unsigned char fill)
+\item 
+int \hyperlink{bstrlib_8c_a9fa79d2ae38c2ac2ce8e144244f6ef24}{breplace} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b1, int pos, int len, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b2, unsigned char fill)
+\item 
+int \hyperlink{bstrlib_8c_a0e9aa5c17ed9fa7b0fbd65d70e5d71ae}{bfindreplace} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} find, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} repl, int pos)
+\item 
+int \hyperlink{bstrlib_8c_a81ce227f58af268af1863ad621ecc0a6}{bfindreplacecaseless} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} find, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} repl, int pos)
+\item 
+int \hyperlink{bstrlib_8c_aabe032b737de07c80007275b20054eea}{binsertch} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int pos, int len, unsigned char fill)
+\item 
+int \hyperlink{bstrlib_8c_a794be336ae84eb07208fbdbd5a5c9947}{bpattern} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int len)
+\item 
+int \hyperlink{bstrlib_8c_ae9e744644ece2ed45a611b694c0e4c77}{breada} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, \hyperlink{bstrlib_8h_a0b01229fdf7fcec4a23905c742d33a32}{b\+Nread} read\+Ptr, void $\ast$parm)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_ae95c28d7eafc7dfb014e0e440fd68b30}{bread} (\hyperlink{bstrlib_8h_a0b01229fdf7fcec4a23905c742d33a32}{b\+Nread} read\+Ptr, void $\ast$parm)
+\item 
+int \hyperlink{bstrlib_8c_aa34789381e6fdfbbc15c33d8a93299e6}{bassigngets} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, \hyperlink{bstrlib_8h_ad3e47d395bda30f291f016fd0d56fa8f}{b\+Ngetc} getc\+Ptr, void $\ast$parm, char terminator)
+\item 
+int \hyperlink{bstrlib_8c_a068e2b8551c65458226ec9a64d673086}{bgetsa} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, \hyperlink{bstrlib_8h_ad3e47d395bda30f291f016fd0d56fa8f}{b\+Ngetc} getc\+Ptr, void $\ast$parm, char terminator)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_acb373a00fad24003ff45ca0292f4f8d5}{bgets} (\hyperlink{bstrlib_8h_ad3e47d395bda30f291f016fd0d56fa8f}{b\+Ngetc} getc\+Ptr, void $\ast$parm, char terminator)
+\item 
+struct \hyperlink{structbStream}{b\+Stream} $\ast$ \hyperlink{bstrlib_8c_a375514d5b121d7e43e41ec7516084a39}{bsopen} (\hyperlink{bstrlib_8h_a0b01229fdf7fcec4a23905c742d33a32}{b\+Nread} read\+Ptr, void $\ast$parm)
+\item 
+int \hyperlink{bstrlib_8c_a1687ff9302eab407d55394ff37d11a18}{bsbufflength} (struct \hyperlink{structbStream}{b\+Stream} $\ast$s, int sz)
+\item 
+int \hyperlink{bstrlib_8c_a91be1eff6fc194df54ff3aeda96cc624}{bseof} (const struct \hyperlink{structbStream}{b\+Stream} $\ast$s)
+\item 
+void $\ast$ \hyperlink{bstrlib_8c_acc02227da53e65324b46ba093ce33418}{bsclose} (struct \hyperlink{structbStream}{b\+Stream} $\ast$s)
+\item 
+int \hyperlink{bstrlib_8c_a445cf6717c67130bcd547161bd0671fe}{bsreadlna} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} r, struct \hyperlink{structbStream}{b\+Stream} $\ast$s, char terminator)
+\item 
+int \hyperlink{bstrlib_8c_a74718d805c33ca99dfcb67c26429e2cf}{bsreadlnsa} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} r, struct \hyperlink{structbStream}{b\+Stream} $\ast$s, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} term)
+\item 
+int \hyperlink{bstrlib_8c_af7e7e8f3373d191eeeb930eaf862790b}{bsreada} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} r, struct \hyperlink{structbStream}{b\+Stream} $\ast$s, int n)
+\item 
+int \hyperlink{bstrlib_8c_aefe2e8a821ceab1e911939ee7dc48d46}{bsreadln} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} r, struct \hyperlink{structbStream}{b\+Stream} $\ast$s, char terminator)
+\item 
+int \hyperlink{bstrlib_8c_a1b0be0cd89bff4095f256c68e79faf2c}{bsreadlns} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} r, struct \hyperlink{structbStream}{b\+Stream} $\ast$s, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} term)
+\item 
+int \hyperlink{bstrlib_8c_a2f617474c4981ee2db56883c4a2739de}{bsread} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} r, struct \hyperlink{structbStream}{b\+Stream} $\ast$s, int n)
+\item 
+int \hyperlink{bstrlib_8c_a3aa79cb7c99281a9414bf39f506351ef}{bsunread} (struct \hyperlink{structbStream}{b\+Stream} $\ast$s, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} b)
+\item 
+int \hyperlink{bstrlib_8c_a126f75bc5c1b0df6344ee98c8be9fae9}{bspeek} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} r, const struct \hyperlink{structbStream}{b\+Stream} $\ast$s)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_a6cb1313a484612b7b4026a5ee5360afb}{bjoinblk} (const struct \hyperlink{structbstrList}{bstr\+List} $\ast$bl, const void $\ast$blk, int len)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_a7fcfc56cab2256e22e3a68563fc734f3}{bjoin} (const struct \hyperlink{structbstrList}{bstr\+List} $\ast$bl, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} sep)
+\item 
+int \hyperlink{bstrlib_8c_a4f2b2a5786af900d0d1921913eb37de7}{bssplitscb} (struct \hyperlink{structbStream}{b\+Stream} $\ast$s, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} split\+Str, int($\ast$cb)(void $\ast$parm, int ofs, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} entry), void $\ast$parm)
+\item 
+int \hyperlink{bstrlib_8c_a60cc9226577aab571873009a4e7c0827}{bssplitstrcb} (struct \hyperlink{structbStream}{b\+Stream} $\ast$s, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} split\+Str, int($\ast$cb)(void $\ast$parm, int ofs, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} entry), void $\ast$parm)
+\item 
+struct \hyperlink{structbstrList}{bstr\+List} $\ast$ \hyperlink{bstrlib_8c_a2769336b6423d1e9679de8d0e37f49e8}{bstr\+List\+Create} (void)
+\item 
+int \hyperlink{bstrlib_8c_adc923a800379a3f763ab01c9a7eb3d61}{bstr\+List\+Destroy} (struct \hyperlink{structbstrList}{bstr\+List} $\ast$sl)
+\item 
+int \hyperlink{bstrlib_8c_af6a79f3c7b2e86f2555be2a3f017670b}{bstr\+List\+Alloc} (struct \hyperlink{structbstrList}{bstr\+List} $\ast$sl, int msz)
+\item 
+int \hyperlink{bstrlib_8c_ae7090106c312bf11bbe7745e0ed24931}{bstr\+List\+Alloc\+Min} (struct \hyperlink{structbstrList}{bstr\+List} $\ast$sl, int msz)
+\item 
+int \hyperlink{bstrlib_8c_a26da9990485c906bd847d896c07b3702}{bsplitcb} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} str, unsigned char split\+Char, int pos, int($\ast$cb)(void $\ast$parm, int ofs, int len), void $\ast$parm)
+\item 
+int \hyperlink{bstrlib_8c_a82792b2a1a5a6811638a5b4659117c36}{bsplitscb} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} str, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} split\+Str, int pos, int($\ast$cb)(void $\ast$parm, int ofs, int len), void $\ast$parm)
+\item 
+int \hyperlink{bstrlib_8c_a020a9a8238f234ff67504d900aeb6e6f}{bsplitstrcb} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} str, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} split\+Str, int pos, int($\ast$cb)(void $\ast$parm, int ofs, int len), void $\ast$parm)
+\item 
+struct \hyperlink{structbstrList}{bstr\+List} $\ast$ \hyperlink{bstrlib_8c_a39dae6d7c2f7e2ef9032f46f64ea1f62}{bsplit} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} str, unsigned char split\+Char)
+\item 
+struct \hyperlink{structbstrList}{bstr\+List} $\ast$ \hyperlink{bstrlib_8c_a5852af6d986b793e2a1bf857e07616d1}{bsplitstr} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} str, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} split\+Str)
+\item 
+struct \hyperlink{structbstrList}{bstr\+List} $\ast$ \hyperlink{bstrlib_8c_ada6a44e6d5c31cbc4ff00fa37ceb1773}{bsplits} (\hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} str, \hyperlink{bstrlib_8h_a78aa77f0f4df85bded0635fbc4c3a657}{const\+\_\+bstring} split\+Str)
+\item 
+int \hyperlink{bstrlib_8c_a758fd8fe430b48c4da6dfeba91445778}{bformata} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, const char $\ast$fmt,...)
+\item 
+int \hyperlink{bstrlib_8c_a31483e62cbaf1341cace8f5a7703b1b1}{bassignformat} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, const char $\ast$fmt,...)
+\item 
+\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} \hyperlink{bstrlib_8c_afb6df5c0cec0f16cfc4a44ac46abfdbb}{bformat} (const char $\ast$fmt,...)
+\item 
+int \hyperlink{bstrlib_8c_aa53b97d7a14e26bd5c7b14e92568f52a}{bvcformata} (\hyperlink{bstrlib_8h_a7ee510452ae810b71268dfa7b39a3712}{bstring} b, int count, const char $\ast$fmt, va\+\_\+list arg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bstrlib_8c_ad8e62d1208249eb2b50022fc16fa4f9e}{}\index{bstrlib.\+c@{bstrlib.\+c}!b\+Block\+Copy@{b\+Block\+Copy}}
+\index{b\+Block\+Copy@{b\+Block\+Copy}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{b\+Block\+Copy}]{\setlength{\rightskip}{0pt plus 5cm}\#define b\+Block\+Copy(
+\begin{DoxyParamCaption}
+\item[{}]{D, }
+\item[{}]{S, }
+\item[{}]{L}
+\end{DoxyParamCaption}
+)~\{ if ((L) $>$ 0) {\bf bstr\+\_\+\+\_\+memmove} ((D),(S),(L)); \}}\label{bstrlib_8c_ad8e62d1208249eb2b50022fc16fa4f9e}
+\hypertarget{bstrlib_8c_a68722d687b9e276d48ebd056d9a88a89}{}\index{bstrlib.\+c@{bstrlib.\+c}!B\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+Z@{B\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+Z}}
+\index{B\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+Z@{B\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+Z}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{B\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+Z~(1024)}\label{bstrlib_8c_a68722d687b9e276d48ebd056d9a88a89}
+\hypertarget{bstrlib_8c_a139b8101e6a39238dcd4c290fb8a082e}{}\index{bstrlib.\+c@{bstrlib.\+c}!B\+S\+S\+S\+C\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N@{B\+S\+S\+S\+C\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N}}
+\index{B\+S\+S\+S\+C\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N@{B\+S\+S\+S\+C\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{B\+S\+S\+S\+C\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+S\+S\+S\+C\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N~(256)}\label{bstrlib_8c_a139b8101e6a39238dcd4c290fb8a082e}
+\hypertarget{bstrlib_8c_a39afa9df7a3d3dc5eb8fecfe03c681d3}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+alloc@{bstr\+\_\+\+\_\+alloc}}
+\index{bstr\+\_\+\+\_\+alloc@{bstr\+\_\+\+\_\+alloc}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+alloc}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+alloc(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~malloc (x)}\label{bstrlib_8c_a39afa9df7a3d3dc5eb8fecfe03c681d3}
+\hypertarget{bstrlib_8c_a1d097ca5b1d9f9b15c06bd39538c4e0b}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+free@{bstr\+\_\+\+\_\+free}}
+\index{bstr\+\_\+\+\_\+free@{bstr\+\_\+\+\_\+free}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+free(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~free (p)}\label{bstrlib_8c_a1d097ca5b1d9f9b15c06bd39538c4e0b}
+\hypertarget{bstrlib_8c_afc195354bd8f94ed2e0b373ed85658ad}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+memchr@{bstr\+\_\+\+\_\+memchr}}
+\index{bstr\+\_\+\+\_\+memchr@{bstr\+\_\+\+\_\+memchr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+memchr}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+memchr(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{c, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)~memchr ((s), (c), (l))}\label{bstrlib_8c_afc195354bd8f94ed2e0b373ed85658ad}
+\hypertarget{bstrlib_8c_aab40310eb4a16a4d7c0fa677743dfa73}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+memcmp@{bstr\+\_\+\+\_\+memcmp}}
+\index{bstr\+\_\+\+\_\+memcmp@{bstr\+\_\+\+\_\+memcmp}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+memcmp}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+memcmp(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{c, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)~memcmp ((d), (c), (l))}\label{bstrlib_8c_aab40310eb4a16a4d7c0fa677743dfa73}
+\hypertarget{bstrlib_8c_a680540cb26267f721e52a80e4c975d4b}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+memcpy@{bstr\+\_\+\+\_\+memcpy}}
+\index{bstr\+\_\+\+\_\+memcpy@{bstr\+\_\+\+\_\+memcpy}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+memcpy}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+memcpy(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{s, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)~memcpy ((d), (s), (l))}\label{bstrlib_8c_a680540cb26267f721e52a80e4c975d4b}
+\hypertarget{bstrlib_8c_afbaa090340e7f7b7677b5c47d40f0800}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+memmove@{bstr\+\_\+\+\_\+memmove}}
+\index{bstr\+\_\+\+\_\+memmove@{bstr\+\_\+\+\_\+memmove}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+memmove}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+memmove(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{s, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)~memmove ((d), (s), (l))}\label{bstrlib_8c_afbaa090340e7f7b7677b5c47d40f0800}
+\hypertarget{bstrlib_8c_a98bdadc77e82f814058362c0f59f33bb}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+memset@{bstr\+\_\+\+\_\+memset}}
+\index{bstr\+\_\+\+\_\+memset@{bstr\+\_\+\+\_\+memset}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+memset}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+memset(
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{c, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)~memset ((d), (c), (l))}\label{bstrlib_8c_a98bdadc77e82f814058362c0f59f33bb}
+\hypertarget{bstrlib_8c_a00e2cadf83d23455793b6d432d936476}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+\_\+\+\_\+realloc@{bstr\+\_\+\+\_\+realloc}}
+\index{bstr\+\_\+\+\_\+realloc@{bstr\+\_\+\+\_\+realloc}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+\_\+\+\_\+realloc}]{\setlength{\rightskip}{0pt plus 5cm}\#define bstr\+\_\+\+\_\+realloc(
+\begin{DoxyParamCaption}
+\item[{}]{p, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~realloc ((p), (x))}\label{bstrlib_8c_a00e2cadf83d23455793b6d432d936476}
+\hypertarget{bstrlib_8c_aafa32b69f3240364a4dc12023cc182d2}{}\index{bstrlib.\+c@{bstrlib.\+c}!C\+F\+C\+L\+E\+N@{C\+F\+C\+L\+E\+N}}
+\index{C\+F\+C\+L\+E\+N@{C\+F\+C\+L\+E\+N}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{C\+F\+C\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+F\+C\+L\+E\+N~((1 $<$$<$ C\+H\+A\+R\+\_\+\+B\+I\+T) / {\bf L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y})}\label{bstrlib_8c_aafa32b69f3240364a4dc12023cc182d2}
+\hypertarget{bstrlib_8c_a25982c3a2e7aea6580985a5da4d6c276}{}\index{bstrlib.\+c@{bstrlib.\+c}!downcase@{downcase}}
+\index{downcase@{downcase}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{downcase}]{\setlength{\rightskip}{0pt plus 5cm}\#define downcase(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(tolower ((unsigned char) c))}\label{bstrlib_8c_a25982c3a2e7aea6580985a5da4d6c276}
+\hypertarget{bstrlib_8c_ac334ab6503ef8c32581b8a1a554e1872}{}\index{bstrlib.\+c@{bstrlib.\+c}!exvsnprintf@{exvsnprintf}}
+\index{exvsnprintf@{exvsnprintf}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{exvsnprintf}]{\setlength{\rightskip}{0pt plus 5cm}\#define exvsnprintf(
+\begin{DoxyParamCaption}
+\item[{}]{r, }
+\item[{}]{b, }
+\item[{}]{n, }
+\item[{}]{f, }
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~\{r = vsnprintf (b,n,f,a);\}}\label{bstrlib_8c_ac334ab6503ef8c32581b8a1a554e1872}
+\hypertarget{bstrlib_8c_a0330c9819e160d4b551ddaed00b7daae}{}\index{bstrlib.\+c@{bstrlib.\+c}!I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+F\+I\+N\+D\+\_\+\+I\+N\+D\+E\+X\+\_\+\+C\+O\+U\+N\+T@{I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+F\+I\+N\+D\+\_\+\+I\+N\+D\+E\+X\+\_\+\+C\+O\+U\+N\+T}}
+\index{I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+F\+I\+N\+D\+\_\+\+I\+N\+D\+E\+X\+\_\+\+C\+O\+U\+N\+T@{I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+F\+I\+N\+D\+\_\+\+I\+N\+D\+E\+X\+\_\+\+C\+O\+U\+N\+T}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+F\+I\+N\+D\+\_\+\+I\+N\+D\+E\+X\+\_\+\+C\+O\+U\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+F\+I\+N\+D\+\_\+\+I\+N\+D\+E\+X\+\_\+\+C\+O\+U\+N\+T~32}\label{bstrlib_8c_a0330c9819e160d4b551ddaed00b7daae}
+\hypertarget{bstrlib_8c_a20503543a540058081d60fb0b33c472d}{}\index{bstrlib.\+c@{bstrlib.\+c}!L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y@{L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}}
+\index{L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y@{L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+N\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y~(1 $<$$<$ {\bf L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y})}\label{bstrlib_8c_a20503543a540058081d60fb0b33c472d}
+\hypertarget{bstrlib_8c_a66913ef35962021d9153f9c61ad32620}{}\index{bstrlib.\+c@{bstrlib.\+c}!L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y@{L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}}
+\index{L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y@{L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+N\+G\+\_\+\+L\+O\+G\+\_\+\+B\+I\+T\+S\+\_\+\+Q\+T\+Y~(3)}\label{bstrlib_8c_a66913ef35962021d9153f9c61ad32620}
+\hypertarget{bstrlib_8c_aadeaa627bb705a303b5c952c2bdebdad}{}\index{bstrlib.\+c@{bstrlib.\+c}!L\+O\+N\+G\+\_\+\+T\+Y\+P\+E@{L\+O\+N\+G\+\_\+\+T\+Y\+P\+E}}
+\index{L\+O\+N\+G\+\_\+\+T\+Y\+P\+E@{L\+O\+N\+G\+\_\+\+T\+Y\+P\+E}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{L\+O\+N\+G\+\_\+\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+N\+G\+\_\+\+T\+Y\+P\+E~unsigned char}\label{bstrlib_8c_aadeaa627bb705a303b5c952c2bdebdad}
+\hypertarget{bstrlib_8c_a607344e9234f1fba567f16a29cde7952}{}\index{bstrlib.\+c@{bstrlib.\+c}!set\+In\+Char\+Field@{set\+In\+Char\+Field}}
+\index{set\+In\+Char\+Field@{set\+In\+Char\+Field}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{set\+In\+Char\+Field}]{\setlength{\rightskip}{0pt plus 5cm}\#define set\+In\+Char\+Field(
+\begin{DoxyParamCaption}
+\item[{}]{cf, }
+\item[{}]{idx}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a607344e9234f1fba567f16a29cde7952}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \(\backslash\)
+    unsigned \textcolor{keywordtype}{int} c = (\textcolor{keywordtype}{unsigned} int) (idx); \(\backslash\)
+    (cf)->content[c >> \hyperlink{bstrlib_8c_a66913ef35962021d9153f9c61ad32620}{LONG\_LOG\_BITS\_QTY}] |= \(\backslash\)
+        (\hyperlink{bstrlib_8c_aadeaa627bb705a303b5c952c2bdebdad}{LONG\_TYPE}) (1ul << (c & (\hyperlink{bstrlib_8c_a20503543a540058081d60fb0b33c472d}{LONG\_BITS\_QTY}-1))); \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{bstrlib_8c_a2cfb5b720d1a59ebba99ec491da5ca35}{}\index{bstrlib.\+c@{bstrlib.\+c}!S\+T\+A\+R\+T\+\_\+\+V\+S\+N\+B\+U\+F\+F@{S\+T\+A\+R\+T\+\_\+\+V\+S\+N\+B\+U\+F\+F}}
+\index{S\+T\+A\+R\+T\+\_\+\+V\+S\+N\+B\+U\+F\+F@{S\+T\+A\+R\+T\+\_\+\+V\+S\+N\+B\+U\+F\+F}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{S\+T\+A\+R\+T\+\_\+\+V\+S\+N\+B\+U\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+R\+T\+\_\+\+V\+S\+N\+B\+U\+F\+F~(16)}\label{bstrlib_8c_a2cfb5b720d1a59ebba99ec491da5ca35}
+\hypertarget{bstrlib_8c_ab01505af6547ff9a565d7542d5225f71}{}\index{bstrlib.\+c@{bstrlib.\+c}!test\+In\+Char\+Field@{test\+In\+Char\+Field}}
+\index{test\+In\+Char\+Field@{test\+In\+Char\+Field}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{test\+In\+Char\+Field}]{\setlength{\rightskip}{0pt plus 5cm}\#define test\+In\+Char\+Field(
+\begin{DoxyParamCaption}
+\item[{}]{cf, }
+\item[{}]{c}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ab01505af6547ff9a565d7542d5225f71}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((cf)->content[(c) >> \hyperlink{bstrlib_8c_a66913ef35962021d9153f9c61ad32620}{LONG\_LOG\_BITS\_QTY}] & \(\backslash\)
+                               (((long)1) << ((c) & (\hyperlink{bstrlib_8c_a20503543a540058081d60fb0b33c472d}{LONG\_BITS\_QTY}-1))))
+\end{DoxyCode}
+\hypertarget{bstrlib_8c_a7888edb3637a7bd451df0ba2add84893}{}\index{bstrlib.\+c@{bstrlib.\+c}!upcase@{upcase}}
+\index{upcase@{upcase}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{upcase}]{\setlength{\rightskip}{0pt plus 5cm}\#define upcase(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(toupper ((unsigned char) c))}\label{bstrlib_8c_a7888edb3637a7bd451df0ba2add84893}
+\hypertarget{bstrlib_8c_aa2515fc6722e119738d604c68bfcf48e}{}\index{bstrlib.\+c@{bstrlib.\+c}!wspace@{wspace}}
+\index{wspace@{wspace}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{wspace}]{\setlength{\rightskip}{0pt plus 5cm}\#define wspace(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(isspace ((unsigned char) c))}\label{bstrlib_8c_aa2515fc6722e119738d604c68bfcf48e}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{bstrlib_8c_a80e531a6c8fba5895d57335bf3b46958}{}\index{bstrlib.\+c@{bstrlib.\+c}!instr\+\_\+fnptr@{instr\+\_\+fnptr}}
+\index{instr\+\_\+fnptr@{instr\+\_\+fnptr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{instr\+\_\+fnptr}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ instr\+\_\+fnptr) ({\bf const\+\_\+bstring} s1, int pos, {\bf const\+\_\+bstring} s2)}\label{bstrlib_8c_a80e531a6c8fba5895d57335bf3b46958}
+
+
+\subsection{Function Documentation}
+\hypertarget{bstrlib_8c_a71ca3b83ad803d719de83b9b95079da5}{}\index{bstrlib.\+c@{bstrlib.\+c}!balloc@{balloc}}
+\index{balloc@{balloc}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{balloc}]{\setlength{\rightskip}{0pt plus 5cm}int balloc (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{olen}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a71ca3b83ad803d719de83b9b95079da5}
+\hypertarget{bstrlib_8c_aa3215129c26370469f86aa38c5916377}{}\index{bstrlib.\+c@{bstrlib.\+c}!ballocmin@{ballocmin}}
+\index{ballocmin@{ballocmin}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{ballocmin}]{\setlength{\rightskip}{0pt plus 5cm}int ballocmin (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aa3215129c26370469f86aa38c5916377}
+\hypertarget{bstrlib_8c_ad5308b535bf446078d2c51f7f1d4f755}{}\index{bstrlib.\+c@{bstrlib.\+c}!bassign@{bassign}}
+\index{bassign@{bassign}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bassign}]{\setlength{\rightskip}{0pt plus 5cm}int bassign (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{a, }
+\item[{{\bf const\+\_\+bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ad5308b535bf446078d2c51f7f1d4f755}
+\hypertarget{bstrlib_8c_aaa60afbe75d06825b7560551093e0e2c}{}\index{bstrlib.\+c@{bstrlib.\+c}!bassignblk@{bassignblk}}
+\index{bassignblk@{bassignblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bassignblk}]{\setlength{\rightskip}{0pt plus 5cm}int bassignblk (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{a, }
+\item[{const void $\ast$}]{s, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aaa60afbe75d06825b7560551093e0e2c}
+\hypertarget{bstrlib_8c_a0b113d975a350dafde41677492efad13}{}\index{bstrlib.\+c@{bstrlib.\+c}!bassigncstr@{bassigncstr}}
+\index{bassigncstr@{bassigncstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bassigncstr}]{\setlength{\rightskip}{0pt plus 5cm}int bassigncstr (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{a, }
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a0b113d975a350dafde41677492efad13}
+\hypertarget{bstrlib_8c_a31483e62cbaf1341cace8f5a7703b1b1}{}\index{bstrlib.\+c@{bstrlib.\+c}!bassignformat@{bassignformat}}
+\index{bassignformat@{bassignformat}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bassignformat}]{\setlength{\rightskip}{0pt plus 5cm}int bassignformat (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a31483e62cbaf1341cace8f5a7703b1b1}
+\hypertarget{bstrlib_8c_aa34789381e6fdfbbc15c33d8a93299e6}{}\index{bstrlib.\+c@{bstrlib.\+c}!bassigngets@{bassigngets}}
+\index{bassigngets@{bassigngets}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bassigngets}]{\setlength{\rightskip}{0pt plus 5cm}int bassigngets (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{{\bf b\+Ngetc}}]{getc\+Ptr, }
+\item[{void $\ast$}]{parm, }
+\item[{char}]{terminator}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aa34789381e6fdfbbc15c33d8a93299e6}
+\hypertarget{bstrlib_8c_a1639f09e544d664a0ed0ad266d92afd4}{}\index{bstrlib.\+c@{bstrlib.\+c}!bassignmidstr@{bassignmidstr}}
+\index{bassignmidstr@{bassignmidstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bassignmidstr}]{\setlength{\rightskip}{0pt plus 5cm}int bassignmidstr (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{a, }
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{int}]{left, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a1639f09e544d664a0ed0ad266d92afd4}
+\hypertarget{bstrlib_8c_a63aba7be9cac97b2423d0b7fe0ef2d3b}{}\index{bstrlib.\+c@{bstrlib.\+c}!bcatblk@{bcatblk}}
+\index{bcatblk@{bcatblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bcatblk}]{\setlength{\rightskip}{0pt plus 5cm}int bcatblk (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{const void $\ast$}]{s, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a63aba7be9cac97b2423d0b7fe0ef2d3b}
+\hypertarget{bstrlib_8c_aa0a160e952140ea2228cffca365cc1e5}{}\index{bstrlib.\+c@{bstrlib.\+c}!bcatcstr@{bcatcstr}}
+\index{bcatcstr@{bcatcstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bcatcstr}]{\setlength{\rightskip}{0pt plus 5cm}int bcatcstr (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{const char $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aa0a160e952140ea2228cffca365cc1e5}
+\hypertarget{bstrlib_8c_a4bb4f276df0187508359004c911ca47b}{}\index{bstrlib.\+c@{bstrlib.\+c}!bconcat@{bconcat}}
+\index{bconcat@{bconcat}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bconcat}]{\setlength{\rightskip}{0pt plus 5cm}int bconcat (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b0, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a4bb4f276df0187508359004c911ca47b}
+\hypertarget{bstrlib_8c_ab21dd77c743df60a682a720a8b981f24}{}\index{bstrlib.\+c@{bstrlib.\+c}!bconchar@{bconchar}}
+\index{bconchar@{bconchar}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bconchar}]{\setlength{\rightskip}{0pt plus 5cm}int bconchar (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ab21dd77c743df60a682a720a8b981f24}
+\hypertarget{bstrlib_8c_aaefe0f9aede448c15b01d882ca977de5}{}\index{bstrlib.\+c@{bstrlib.\+c}!bcstrfree@{bcstrfree}}
+\index{bcstrfree@{bcstrfree}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bcstrfree}]{\setlength{\rightskip}{0pt plus 5cm}int bcstrfree (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aaefe0f9aede448c15b01d882ca977de5}
+\hypertarget{bstrlib_8c_abc9e2b8145989db6bbef05634b717196}{}\index{bstrlib.\+c@{bstrlib.\+c}!bdelete@{bdelete}}
+\index{bdelete@{bdelete}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bdelete}]{\setlength{\rightskip}{0pt plus 5cm}int bdelete (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{pos, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_abc9e2b8145989db6bbef05634b717196}
+\hypertarget{bstrlib_8c_abebe200396d233cc3b732677e17f1087}{}\index{bstrlib.\+c@{bstrlib.\+c}!bdestroy@{bdestroy}}
+\index{bdestroy@{bdestroy}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bdestroy}]{\setlength{\rightskip}{0pt plus 5cm}int bdestroy (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_abebe200396d233cc3b732677e17f1087}
+\hypertarget{bstrlib_8c_a0e9aa5c17ed9fa7b0fbd65d70e5d71ae}{}\index{bstrlib.\+c@{bstrlib.\+c}!bfindreplace@{bfindreplace}}
+\index{bfindreplace@{bfindreplace}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bfindreplace}]{\setlength{\rightskip}{0pt plus 5cm}int bfindreplace (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{{\bf const\+\_\+bstring}}]{find, }
+\item[{{\bf const\+\_\+bstring}}]{repl, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a0e9aa5c17ed9fa7b0fbd65d70e5d71ae}
+\hypertarget{bstrlib_8c_a81ce227f58af268af1863ad621ecc0a6}{}\index{bstrlib.\+c@{bstrlib.\+c}!bfindreplacecaseless@{bfindreplacecaseless}}
+\index{bfindreplacecaseless@{bfindreplacecaseless}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bfindreplacecaseless}]{\setlength{\rightskip}{0pt plus 5cm}int bfindreplacecaseless (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{{\bf const\+\_\+bstring}}]{find, }
+\item[{{\bf const\+\_\+bstring}}]{repl, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a81ce227f58af268af1863ad621ecc0a6}
+\hypertarget{bstrlib_8c_afb6df5c0cec0f16cfc4a44ac46abfdbb}{}\index{bstrlib.\+c@{bstrlib.\+c}!bformat@{bformat}}
+\index{bformat@{bformat}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bformat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bformat (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_afb6df5c0cec0f16cfc4a44ac46abfdbb}
+\hypertarget{bstrlib_8c_a758fd8fe430b48c4da6dfeba91445778}{}\index{bstrlib.\+c@{bstrlib.\+c}!bformata@{bformata}}
+\index{bformata@{bformata}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bformata}]{\setlength{\rightskip}{0pt plus 5cm}int bformata (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a758fd8fe430b48c4da6dfeba91445778}
+\hypertarget{bstrlib_8c_a323bad8fd30b7b8c3fd2ec17f26935d2}{}\index{bstrlib.\+c@{bstrlib.\+c}!bfromcstr@{bfromcstr}}
+\index{bfromcstr@{bfromcstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bfromcstr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bfromcstr (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a323bad8fd30b7b8c3fd2ec17f26935d2}
+\hypertarget{bstrlib_8c_ab505e4ece683c289cc40bc271a7c7819}{}\index{bstrlib.\+c@{bstrlib.\+c}!bfromcstralloc@{bfromcstralloc}}
+\index{bfromcstralloc@{bfromcstralloc}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bfromcstralloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bfromcstralloc (
+\begin{DoxyParamCaption}
+\item[{int}]{mlen, }
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ab505e4ece683c289cc40bc271a7c7819}
+\hypertarget{bstrlib_8c_aab5e438626fafd82dc6954047854eafb}{}\index{bstrlib.\+c@{bstrlib.\+c}!bfromcstrrangealloc@{bfromcstrrangealloc}}
+\index{bfromcstrrangealloc@{bfromcstrrangealloc}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bfromcstrrangealloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bfromcstrrangealloc (
+\begin{DoxyParamCaption}
+\item[{int}]{minl, }
+\item[{int}]{maxl, }
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aab5e438626fafd82dc6954047854eafb}
+\hypertarget{bstrlib_8c_acb373a00fad24003ff45ca0292f4f8d5}{}\index{bstrlib.\+c@{bstrlib.\+c}!bgets@{bgets}}
+\index{bgets@{bgets}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bgets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bgets (
+\begin{DoxyParamCaption}
+\item[{{\bf b\+Ngetc}}]{getc\+Ptr, }
+\item[{void $\ast$}]{parm, }
+\item[{char}]{terminator}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_acb373a00fad24003ff45ca0292f4f8d5}
+\hypertarget{bstrlib_8c_a068e2b8551c65458226ec9a64d673086}{}\index{bstrlib.\+c@{bstrlib.\+c}!bgetsa@{bgetsa}}
+\index{bgetsa@{bgetsa}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bgetsa}]{\setlength{\rightskip}{0pt plus 5cm}int bgetsa (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{{\bf b\+Ngetc}}]{getc\+Ptr, }
+\item[{void $\ast$}]{parm, }
+\item[{char}]{terminator}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a068e2b8551c65458226ec9a64d673086}
+\hypertarget{bstrlib_8c_ad1e99261aecb78119ce018f22d4b9003}{}\index{bstrlib.\+c@{bstrlib.\+c}!binchr@{binchr}}
+\index{binchr@{binchr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binchr}]{\setlength{\rightskip}{0pt plus 5cm}int binchr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ad1e99261aecb78119ce018f22d4b9003}
+\hypertarget{bstrlib_8c_affb3b6d9713d65aa7b1c99f30b621aa2}{}\index{bstrlib.\+c@{bstrlib.\+c}!binchrr@{binchrr}}
+\index{binchrr@{binchrr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binchrr}]{\setlength{\rightskip}{0pt plus 5cm}int binchrr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_affb3b6d9713d65aa7b1c99f30b621aa2}
+\hypertarget{bstrlib_8c_aedbcd4314809a979760f8b6587627290}{}\index{bstrlib.\+c@{bstrlib.\+c}!binsert@{binsert}}
+\index{binsert@{binsert}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binsert}]{\setlength{\rightskip}{0pt plus 5cm}int binsert (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b1, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b2, }
+\item[{unsigned char}]{fill}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aedbcd4314809a979760f8b6587627290}
+\hypertarget{bstrlib_8c_ac63d3a19a84d108b4982a53c5c20c855}{}\index{bstrlib.\+c@{bstrlib.\+c}!binsertblk@{binsertblk}}
+\index{binsertblk@{binsertblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binsertblk}]{\setlength{\rightskip}{0pt plus 5cm}int binsertblk (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{pos, }
+\item[{const void $\ast$}]{blk, }
+\item[{int}]{len, }
+\item[{unsigned char}]{fill}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ac63d3a19a84d108b4982a53c5c20c855}
+\hypertarget{bstrlib_8c_aabe032b737de07c80007275b20054eea}{}\index{bstrlib.\+c@{bstrlib.\+c}!binsertch@{binsertch}}
+\index{binsertch@{binsertch}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binsertch}]{\setlength{\rightskip}{0pt plus 5cm}int binsertch (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{pos, }
+\item[{int}]{len, }
+\item[{unsigned char}]{fill}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aabe032b737de07c80007275b20054eea}
+\hypertarget{bstrlib_8c_aa7ad93ebaf1f1357cf9c996d1a44e380}{}\index{bstrlib.\+c@{bstrlib.\+c}!binstr@{binstr}}
+\index{binstr@{binstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binstr}]{\setlength{\rightskip}{0pt plus 5cm}int binstr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b1, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b2}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aa7ad93ebaf1f1357cf9c996d1a44e380}
+\hypertarget{bstrlib_8c_abd24c58c12f8751444b7da4ba8254213}{}\index{bstrlib.\+c@{bstrlib.\+c}!binstrcaseless@{binstrcaseless}}
+\index{binstrcaseless@{binstrcaseless}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binstrcaseless}]{\setlength{\rightskip}{0pt plus 5cm}int binstrcaseless (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b1, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b2}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_abd24c58c12f8751444b7da4ba8254213}
+\hypertarget{bstrlib_8c_a32672d0f2ab78541099fd72b7c14b211}{}\index{bstrlib.\+c@{bstrlib.\+c}!binstrr@{binstrr}}
+\index{binstrr@{binstrr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binstrr}]{\setlength{\rightskip}{0pt plus 5cm}int binstrr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b1, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b2}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a32672d0f2ab78541099fd72b7c14b211}
+\hypertarget{bstrlib_8c_a8a40513f41a46edf0aacb72c790028a8}{}\index{bstrlib.\+c@{bstrlib.\+c}!binstrrcaseless@{binstrrcaseless}}
+\index{binstrrcaseless@{binstrrcaseless}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{binstrrcaseless}]{\setlength{\rightskip}{0pt plus 5cm}int binstrrcaseless (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b1, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b2}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a8a40513f41a46edf0aacb72c790028a8}
+\hypertarget{bstrlib_8c_a348899d0efd767ef5f01a78a68e6acbc}{}\index{bstrlib.\+c@{bstrlib.\+c}!biseq@{biseq}}
+\index{biseq@{biseq}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{biseq}]{\setlength{\rightskip}{0pt plus 5cm}int biseq (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a348899d0efd767ef5f01a78a68e6acbc}
+\hypertarget{bstrlib_8c_a3a63116987138cfa6d23b562ad578e2c}{}\index{bstrlib.\+c@{bstrlib.\+c}!biseqblk@{biseqblk}}
+\index{biseqblk@{biseqblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{biseqblk}]{\setlength{\rightskip}{0pt plus 5cm}int biseqblk (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{const void $\ast$}]{blk, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a3a63116987138cfa6d23b562ad578e2c}
+\hypertarget{bstrlib_8c_a26e167d692cbbee16c80835b4d0ef455}{}\index{bstrlib.\+c@{bstrlib.\+c}!biseqcaseless@{biseqcaseless}}
+\index{biseqcaseless@{biseqcaseless}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{biseqcaseless}]{\setlength{\rightskip}{0pt plus 5cm}int biseqcaseless (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a26e167d692cbbee16c80835b4d0ef455}
+\hypertarget{bstrlib_8c_afc72bf8164921d8ae3818efe6e4ccde0}{}\index{bstrlib.\+c@{bstrlib.\+c}!biseqcaselessblk@{biseqcaselessblk}}
+\index{biseqcaselessblk@{biseqcaselessblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{biseqcaselessblk}]{\setlength{\rightskip}{0pt plus 5cm}int biseqcaselessblk (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{const void $\ast$}]{blk, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_afc72bf8164921d8ae3818efe6e4ccde0}
+\hypertarget{bstrlib_8c_ac42f98d977ae472ebb5286527afbf193}{}\index{bstrlib.\+c@{bstrlib.\+c}!biseqcstr@{biseqcstr}}
+\index{biseqcstr@{biseqcstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{biseqcstr}]{\setlength{\rightskip}{0pt plus 5cm}int biseqcstr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{const char $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ac42f98d977ae472ebb5286527afbf193}
+\hypertarget{bstrlib_8c_a178bf9ef1178cdc3865c4219ba818712}{}\index{bstrlib.\+c@{bstrlib.\+c}!biseqcstrcaseless@{biseqcstrcaseless}}
+\index{biseqcstrcaseless@{biseqcstrcaseless}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{biseqcstrcaseless}]{\setlength{\rightskip}{0pt plus 5cm}int biseqcstrcaseless (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{const char $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a178bf9ef1178cdc3865c4219ba818712}
+\hypertarget{bstrlib_8c_a0ce8042ddbf28c824d0fe76cd6073810}{}\index{bstrlib.\+c@{bstrlib.\+c}!bisstemeqblk@{bisstemeqblk}}
+\index{bisstemeqblk@{bisstemeqblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bisstemeqblk}]{\setlength{\rightskip}{0pt plus 5cm}int bisstemeqblk (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{const void $\ast$}]{blk, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a0ce8042ddbf28c824d0fe76cd6073810}
+\hypertarget{bstrlib_8c_a9866e64c45e33ff489449e5ba1a32529}{}\index{bstrlib.\+c@{bstrlib.\+c}!bisstemeqcaselessblk@{bisstemeqcaselessblk}}
+\index{bisstemeqcaselessblk@{bisstemeqcaselessblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bisstemeqcaselessblk}]{\setlength{\rightskip}{0pt plus 5cm}int bisstemeqcaselessblk (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{const void $\ast$}]{blk, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a9866e64c45e33ff489449e5ba1a32529}
+\hypertarget{bstrlib_8c_a7fcfc56cab2256e22e3a68563fc734f3}{}\index{bstrlib.\+c@{bstrlib.\+c}!bjoin@{bjoin}}
+\index{bjoin@{bjoin}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bjoin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bjoin (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf bstr\+List} $\ast$}]{bl, }
+\item[{{\bf const\+\_\+bstring}}]{sep}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a7fcfc56cab2256e22e3a68563fc734f3}
+\hypertarget{bstrlib_8c_a6cb1313a484612b7b4026a5ee5360afb}{}\index{bstrlib.\+c@{bstrlib.\+c}!bjoinblk@{bjoinblk}}
+\index{bjoinblk@{bjoinblk}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bjoinblk}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bjoinblk (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf bstr\+List} $\ast$}]{bl, }
+\item[{const void $\ast$}]{blk, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a6cb1313a484612b7b4026a5ee5360afb}
+\hypertarget{bstrlib_8c_a5cc74ee2cb8a63b665ad2fc6ff40cedb}{}\index{bstrlib.\+c@{bstrlib.\+c}!blk2bstr@{blk2bstr}}
+\index{blk2bstr@{blk2bstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{blk2bstr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} blk2bstr (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{blk, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a5cc74ee2cb8a63b665ad2fc6ff40cedb}
+\hypertarget{bstrlib_8c_a76b49922309adf99d0580e02f9db38da}{}\index{bstrlib.\+c@{bstrlib.\+c}!bltrimws@{bltrimws}}
+\index{bltrimws@{bltrimws}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bltrimws}]{\setlength{\rightskip}{0pt plus 5cm}int bltrimws (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a76b49922309adf99d0580e02f9db38da}
+\hypertarget{bstrlib_8c_a88ae85f2a331e1ffc893c897e0af90c5}{}\index{bstrlib.\+c@{bstrlib.\+c}!bmidstr@{bmidstr}}
+\index{bmidstr@{bmidstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bmidstr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bmidstr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{int}]{left, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a88ae85f2a331e1ffc893c897e0af90c5}
+\hypertarget{bstrlib_8c_a9e8e6895817fcaa40211e5751ea8bebe}{}\index{bstrlib.\+c@{bstrlib.\+c}!bninchr@{bninchr}}
+\index{bninchr@{bninchr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bninchr}]{\setlength{\rightskip}{0pt plus 5cm}int bninchr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a9e8e6895817fcaa40211e5751ea8bebe}
+\hypertarget{bstrlib_8c_ae3be1580398284fb344a5f5b005c583c}{}\index{bstrlib.\+c@{bstrlib.\+c}!bninchrr@{bninchrr}}
+\index{bninchrr@{bninchrr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bninchrr}]{\setlength{\rightskip}{0pt plus 5cm}int bninchrr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ae3be1580398284fb344a5f5b005c583c}
+\hypertarget{bstrlib_8c_a794be336ae84eb07208fbdbd5a5c9947}{}\index{bstrlib.\+c@{bstrlib.\+c}!bpattern@{bpattern}}
+\index{bpattern@{bpattern}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bpattern}]{\setlength{\rightskip}{0pt plus 5cm}int bpattern (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a794be336ae84eb07208fbdbd5a5c9947}
+\hypertarget{bstrlib_8c_ae95c28d7eafc7dfb014e0e440fd68b30}{}\index{bstrlib.\+c@{bstrlib.\+c}!bread@{bread}}
+\index{bread@{bread}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bread (
+\begin{DoxyParamCaption}
+\item[{{\bf b\+Nread}}]{read\+Ptr, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ae95c28d7eafc7dfb014e0e440fd68b30}
+\hypertarget{bstrlib_8c_ae9e744644ece2ed45a611b694c0e4c77}{}\index{bstrlib.\+c@{bstrlib.\+c}!breada@{breada}}
+\index{breada@{breada}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{breada}]{\setlength{\rightskip}{0pt plus 5cm}int breada (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{{\bf b\+Nread}}]{read\+Ptr, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ae9e744644ece2ed45a611b694c0e4c77}
+\hypertarget{bstrlib_8c_a9fa79d2ae38c2ac2ce8e144244f6ef24}{}\index{bstrlib.\+c@{bstrlib.\+c}!breplace@{breplace}}
+\index{breplace@{breplace}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{breplace}]{\setlength{\rightskip}{0pt plus 5cm}int breplace (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b1, }
+\item[{int}]{pos, }
+\item[{int}]{len, }
+\item[{{\bf const\+\_\+bstring}}]{b2, }
+\item[{unsigned char}]{fill}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a9fa79d2ae38c2ac2ce8e144244f6ef24}
+\hypertarget{bstrlib_8c_aa5be1156f9a247dc46d94908a80f8b92}{}\index{bstrlib.\+c@{bstrlib.\+c}!brtrimws@{brtrimws}}
+\index{brtrimws@{brtrimws}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{brtrimws}]{\setlength{\rightskip}{0pt plus 5cm}int brtrimws (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aa5be1156f9a247dc46d94908a80f8b92}
+\hypertarget{bstrlib_8c_a1687ff9302eab407d55394ff37d11a18}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsbufflength@{bsbufflength}}
+\index{bsbufflength@{bsbufflength}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsbufflength}]{\setlength{\rightskip}{0pt plus 5cm}int bsbufflength (
+\begin{DoxyParamCaption}
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{int}]{sz}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a1687ff9302eab407d55394ff37d11a18}
+\hypertarget{bstrlib_8c_acc02227da53e65324b46ba093ce33418}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsclose@{bsclose}}
+\index{bsclose@{bsclose}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsclose}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ bsclose (
+\begin{DoxyParamCaption}
+\item[{struct {\bf b\+Stream} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_acc02227da53e65324b46ba093ce33418}
+\hypertarget{bstrlib_8c_a91be1eff6fc194df54ff3aeda96cc624}{}\index{bstrlib.\+c@{bstrlib.\+c}!bseof@{bseof}}
+\index{bseof@{bseof}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bseof}]{\setlength{\rightskip}{0pt plus 5cm}int bseof (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf b\+Stream} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a91be1eff6fc194df54ff3aeda96cc624}
+\hypertarget{bstrlib_8c_ad21e2c3d2af8fac2e43632793f92ec0f}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsetstr@{bsetstr}}
+\index{bsetstr@{bsetstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsetstr}]{\setlength{\rightskip}{0pt plus 5cm}int bsetstr (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b0, }
+\item[{int}]{pos, }
+\item[{{\bf const\+\_\+bstring}}]{b1, }
+\item[{unsigned char}]{fill}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ad21e2c3d2af8fac2e43632793f92ec0f}
+\hypertarget{bstrlib_8c_a375514d5b121d7e43e41ec7516084a39}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsopen@{bsopen}}
+\index{bsopen@{bsopen}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsopen}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf b\+Stream}$\ast$ bsopen (
+\begin{DoxyParamCaption}
+\item[{{\bf b\+Nread}}]{read\+Ptr, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a375514d5b121d7e43e41ec7516084a39}
+\hypertarget{bstrlib_8c_a126f75bc5c1b0df6344ee98c8be9fae9}{}\index{bstrlib.\+c@{bstrlib.\+c}!bspeek@{bspeek}}
+\index{bspeek@{bspeek}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bspeek}]{\setlength{\rightskip}{0pt plus 5cm}int bspeek (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{r, }
+\item[{const struct {\bf b\+Stream} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a126f75bc5c1b0df6344ee98c8be9fae9}
+\hypertarget{bstrlib_8c_a39dae6d7c2f7e2ef9032f46f64ea1f62}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsplit@{bsplit}}
+\index{bsplit@{bsplit}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsplit}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf bstr\+List}$\ast$ bsplit (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{str, }
+\item[{unsigned char}]{split\+Char}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a39dae6d7c2f7e2ef9032f46f64ea1f62}
+\hypertarget{bstrlib_8c_a26da9990485c906bd847d896c07b3702}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsplitcb@{bsplitcb}}
+\index{bsplitcb@{bsplitcb}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsplitcb}]{\setlength{\rightskip}{0pt plus 5cm}int bsplitcb (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{str, }
+\item[{unsigned char}]{split\+Char, }
+\item[{int}]{pos, }
+\item[{int($\ast$)(void $\ast$parm, int ofs, int len)}]{cb, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a26da9990485c906bd847d896c07b3702}
+\hypertarget{bstrlib_8c_ada6a44e6d5c31cbc4ff00fa37ceb1773}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsplits@{bsplits}}
+\index{bsplits@{bsplits}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsplits}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf bstr\+List}$\ast$ bsplits (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{str, }
+\item[{{\bf const\+\_\+bstring}}]{split\+Str}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ada6a44e6d5c31cbc4ff00fa37ceb1773}
+\hypertarget{bstrlib_8c_a82792b2a1a5a6811638a5b4659117c36}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsplitscb@{bsplitscb}}
+\index{bsplitscb@{bsplitscb}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsplitscb}]{\setlength{\rightskip}{0pt plus 5cm}int bsplitscb (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{str, }
+\item[{{\bf const\+\_\+bstring}}]{split\+Str, }
+\item[{int}]{pos, }
+\item[{int($\ast$)(void $\ast$parm, int ofs, int len)}]{cb, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a82792b2a1a5a6811638a5b4659117c36}
+\hypertarget{bstrlib_8c_a5852af6d986b793e2a1bf857e07616d1}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsplitstr@{bsplitstr}}
+\index{bsplitstr@{bsplitstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsplitstr}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf bstr\+List}$\ast$ bsplitstr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{str, }
+\item[{{\bf const\+\_\+bstring}}]{split\+Str}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a5852af6d986b793e2a1bf857e07616d1}
+\hypertarget{bstrlib_8c_a020a9a8238f234ff67504d900aeb6e6f}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsplitstrcb@{bsplitstrcb}}
+\index{bsplitstrcb@{bsplitstrcb}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsplitstrcb}]{\setlength{\rightskip}{0pt plus 5cm}int bsplitstrcb (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{str, }
+\item[{{\bf const\+\_\+bstring}}]{split\+Str, }
+\item[{int}]{pos, }
+\item[{int($\ast$)(void $\ast$parm, int ofs, int len)}]{cb, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a020a9a8238f234ff67504d900aeb6e6f}
+\hypertarget{bstrlib_8c_a2f617474c4981ee2db56883c4a2739de}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsread@{bsread}}
+\index{bsread@{bsread}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsread}]{\setlength{\rightskip}{0pt plus 5cm}int bsread (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{r, }
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a2f617474c4981ee2db56883c4a2739de}
+\hypertarget{bstrlib_8c_af7e7e8f3373d191eeeb930eaf862790b}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsreada@{bsreada}}
+\index{bsreada@{bsreada}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsreada}]{\setlength{\rightskip}{0pt plus 5cm}int bsreada (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{r, }
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_af7e7e8f3373d191eeeb930eaf862790b}
+\hypertarget{bstrlib_8c_aefe2e8a821ceab1e911939ee7dc48d46}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsreadln@{bsreadln}}
+\index{bsreadln@{bsreadln}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsreadln}]{\setlength{\rightskip}{0pt plus 5cm}int bsreadln (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{r, }
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{char}]{terminator}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aefe2e8a821ceab1e911939ee7dc48d46}
+\hypertarget{bstrlib_8c_a445cf6717c67130bcd547161bd0671fe}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsreadlna@{bsreadlna}}
+\index{bsreadlna@{bsreadlna}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsreadlna}]{\setlength{\rightskip}{0pt plus 5cm}int bsreadlna (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{r, }
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{char}]{terminator}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a445cf6717c67130bcd547161bd0671fe}
+\hypertarget{bstrlib_8c_a1b0be0cd89bff4095f256c68e79faf2c}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsreadlns@{bsreadlns}}
+\index{bsreadlns@{bsreadlns}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsreadlns}]{\setlength{\rightskip}{0pt plus 5cm}int bsreadlns (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{r, }
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{{\bf const\+\_\+bstring}}]{term}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a1b0be0cd89bff4095f256c68e79faf2c}
+\hypertarget{bstrlib_8c_a74718d805c33ca99dfcb67c26429e2cf}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsreadlnsa@{bsreadlnsa}}
+\index{bsreadlnsa@{bsreadlnsa}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsreadlnsa}]{\setlength{\rightskip}{0pt plus 5cm}int bsreadlnsa (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{r, }
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{{\bf const\+\_\+bstring}}]{term}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a74718d805c33ca99dfcb67c26429e2cf}
+\hypertarget{bstrlib_8c_a4f2b2a5786af900d0d1921913eb37de7}{}\index{bstrlib.\+c@{bstrlib.\+c}!bssplitscb@{bssplitscb}}
+\index{bssplitscb@{bssplitscb}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bssplitscb}]{\setlength{\rightskip}{0pt plus 5cm}int bssplitscb (
+\begin{DoxyParamCaption}
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{{\bf const\+\_\+bstring}}]{split\+Str, }
+\item[{int($\ast$)(void $\ast$parm, int ofs, {\bf const\+\_\+bstring} entry)}]{cb, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a4f2b2a5786af900d0d1921913eb37de7}
+\hypertarget{bstrlib_8c_a60cc9226577aab571873009a4e7c0827}{}\index{bstrlib.\+c@{bstrlib.\+c}!bssplitstrcb@{bssplitstrcb}}
+\index{bssplitstrcb@{bssplitstrcb}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bssplitstrcb}]{\setlength{\rightskip}{0pt plus 5cm}int bssplitstrcb (
+\begin{DoxyParamCaption}
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{{\bf const\+\_\+bstring}}]{split\+Str, }
+\item[{int($\ast$)(void $\ast$parm, int ofs, {\bf const\+\_\+bstring} entry)}]{cb, }
+\item[{void $\ast$}]{parm}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a60cc9226577aab571873009a4e7c0827}
+\hypertarget{bstrlib_8c_ac6ee5c5fe4e1512cb74f37a51d9382f6}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr2cstr@{bstr2cstr}}
+\index{bstr2cstr@{bstr2cstr}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr2cstr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bstr2cstr (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{char}]{z}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ac6ee5c5fe4e1512cb74f37a51d9382f6}
+\hypertarget{bstrlib_8c_afa2d60dbf98a719bba513547668965d9}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstrchrp@{bstrchrp}}
+\index{bstrchrp@{bstrchrp}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstrchrp}]{\setlength{\rightskip}{0pt plus 5cm}int bstrchrp (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{int}]{c, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_afa2d60dbf98a719bba513547668965d9}
+\hypertarget{bstrlib_8c_a1685392efe5f5df7f1d8483ae940b31f}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstrcmp@{bstrcmp}}
+\index{bstrcmp@{bstrcmp}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstrcmp}]{\setlength{\rightskip}{0pt plus 5cm}int bstrcmp (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a1685392efe5f5df7f1d8483ae940b31f}
+\hypertarget{bstrlib_8c_ae5391e339f3f691d5bf8d37a4a71b74d}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstrcpy@{bstrcpy}}
+\index{bstrcpy@{bstrcpy}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstrcpy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bstring} bstrcpy (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ae5391e339f3f691d5bf8d37a4a71b74d}
+\hypertarget{bstrlib_8c_a35584e78a339b7150cc965e14a1edb11}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstricmp@{bstricmp}}
+\index{bstricmp@{bstricmp}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstricmp}]{\setlength{\rightskip}{0pt plus 5cm}int bstricmp (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{{\bf const\+\_\+bstring}}]{b1}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a35584e78a339b7150cc965e14a1edb11}
+\hypertarget{bstrlib_8c_af6a79f3c7b2e86f2555be2a3f017670b}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+List\+Alloc@{bstr\+List\+Alloc}}
+\index{bstr\+List\+Alloc@{bstr\+List\+Alloc}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+List\+Alloc}]{\setlength{\rightskip}{0pt plus 5cm}int bstr\+List\+Alloc (
+\begin{DoxyParamCaption}
+\item[{struct {\bf bstr\+List} $\ast$}]{sl, }
+\item[{int}]{msz}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_af6a79f3c7b2e86f2555be2a3f017670b}
+\hypertarget{bstrlib_8c_ae7090106c312bf11bbe7745e0ed24931}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+List\+Alloc\+Min@{bstr\+List\+Alloc\+Min}}
+\index{bstr\+List\+Alloc\+Min@{bstr\+List\+Alloc\+Min}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+List\+Alloc\+Min}]{\setlength{\rightskip}{0pt plus 5cm}int bstr\+List\+Alloc\+Min (
+\begin{DoxyParamCaption}
+\item[{struct {\bf bstr\+List} $\ast$}]{sl, }
+\item[{int}]{msz}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ae7090106c312bf11bbe7745e0ed24931}
+\hypertarget{bstrlib_8c_a2769336b6423d1e9679de8d0e37f49e8}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+List\+Create@{bstr\+List\+Create}}
+\index{bstr\+List\+Create@{bstr\+List\+Create}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+List\+Create}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf bstr\+List}$\ast$ bstr\+List\+Create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a2769336b6423d1e9679de8d0e37f49e8}
+\hypertarget{bstrlib_8c_adc923a800379a3f763ab01c9a7eb3d61}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstr\+List\+Destroy@{bstr\+List\+Destroy}}
+\index{bstr\+List\+Destroy@{bstr\+List\+Destroy}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstr\+List\+Destroy}]{\setlength{\rightskip}{0pt plus 5cm}int bstr\+List\+Destroy (
+\begin{DoxyParamCaption}
+\item[{struct {\bf bstr\+List} $\ast$}]{sl}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_adc923a800379a3f763ab01c9a7eb3d61}
+\hypertarget{bstrlib_8c_ac019a14f62fd791c35ffd7b4362a1a56}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstrncmp@{bstrncmp}}
+\index{bstrncmp@{bstrncmp}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstrncmp}]{\setlength{\rightskip}{0pt plus 5cm}int bstrncmp (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{{\bf const\+\_\+bstring}}]{b1, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ac019a14f62fd791c35ffd7b4362a1a56}
+\hypertarget{bstrlib_8c_ae6d51d7ccd757acd1ad9e588a482fc2d}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstrnicmp@{bstrnicmp}}
+\index{bstrnicmp@{bstrnicmp}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstrnicmp}]{\setlength{\rightskip}{0pt plus 5cm}int bstrnicmp (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b0, }
+\item[{{\bf const\+\_\+bstring}}]{b1, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_ae6d51d7ccd757acd1ad9e588a482fc2d}
+\hypertarget{bstrlib_8c_aa5ea6d1dd64510c42584cd6821bec9cd}{}\index{bstrlib.\+c@{bstrlib.\+c}!bstrrchrp@{bstrrchrp}}
+\index{bstrrchrp@{bstrrchrp}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bstrrchrp}]{\setlength{\rightskip}{0pt plus 5cm}int bstrrchrp (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+bstring}}]{b, }
+\item[{int}]{c, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aa5ea6d1dd64510c42584cd6821bec9cd}
+\hypertarget{bstrlib_8c_a3aa79cb7c99281a9414bf39f506351ef}{}\index{bstrlib.\+c@{bstrlib.\+c}!bsunread@{bsunread}}
+\index{bsunread@{bsunread}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bsunread}]{\setlength{\rightskip}{0pt plus 5cm}int bsunread (
+\begin{DoxyParamCaption}
+\item[{struct {\bf b\+Stream} $\ast$}]{s, }
+\item[{{\bf const\+\_\+bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a3aa79cb7c99281a9414bf39f506351ef}
+\hypertarget{bstrlib_8c_a9898743a05a402207976442c9ee5fe44}{}\index{bstrlib.\+c@{bstrlib.\+c}!btolower@{btolower}}
+\index{btolower@{btolower}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{btolower}]{\setlength{\rightskip}{0pt plus 5cm}int btolower (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a9898743a05a402207976442c9ee5fe44}
+\hypertarget{bstrlib_8c_a5f4dae8da932e725148da9c94f1fc153}{}\index{bstrlib.\+c@{bstrlib.\+c}!btoupper@{btoupper}}
+\index{btoupper@{btoupper}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{btoupper}]{\setlength{\rightskip}{0pt plus 5cm}int btoupper (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a5f4dae8da932e725148da9c94f1fc153}
+\hypertarget{bstrlib_8c_a72e2c44b7bad218940ab93b3fb8009c6}{}\index{bstrlib.\+c@{bstrlib.\+c}!btrimws@{btrimws}}
+\index{btrimws@{btrimws}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{btrimws}]{\setlength{\rightskip}{0pt plus 5cm}int btrimws (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a72e2c44b7bad218940ab93b3fb8009c6}
+\hypertarget{bstrlib_8c_a840ac32e58f2a82fbf11995caad4ef12}{}\index{bstrlib.\+c@{bstrlib.\+c}!btrunc@{btrunc}}
+\index{btrunc@{btrunc}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{btrunc}]{\setlength{\rightskip}{0pt plus 5cm}int btrunc (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_a840ac32e58f2a82fbf11995caad4ef12}
+\hypertarget{bstrlib_8c_aa53b97d7a14e26bd5c7b14e92568f52a}{}\index{bstrlib.\+c@{bstrlib.\+c}!bvcformata@{bvcformata}}
+\index{bvcformata@{bvcformata}!bstrlib.\+c@{bstrlib.\+c}}
+\subsubsection[{bvcformata}]{\setlength{\rightskip}{0pt plus 5cm}int bvcformata (
+\begin{DoxyParamCaption}
+\item[{{\bf bstring}}]{b, }
+\item[{int}]{count, }
+\item[{const char $\ast$}]{fmt, }
+\item[{va\+\_\+list}]{arg}
+\end{DoxyParamCaption}
+)}\label{bstrlib_8c_aa53b97d7a14e26bd5c7b14e92568f52a}

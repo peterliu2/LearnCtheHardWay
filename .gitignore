@@ -1,0 +1,19 @@
+# Object file
+*.o
+
+# Library
+*.a
+*.so
+
+# Vim temp file
+*.swp
+
+# taglist file
+cscope*
+
+# taglist file
+tags
+
+# doxygen document file
+*.html
+*.png

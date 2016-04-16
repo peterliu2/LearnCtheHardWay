@@ -1,0 +1,820 @@
+------
+ex20.c
+------
+WARNING: please, no spaces at the start of a line
+#15: FILE: ex20.c:15:
++    // notice you don't need the \n$
+
+ERROR: do not use C99 // comments
+#15: FILE: ex20.c:15:
++    // notice you don't need the \n
+
+WARNING: please, no spaces at the start of a line
+#16: FILE: ex20.c:16:
++    debug( "I have black hair." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#16: FILE: ex20.c:16:
++    debug( "I have black hair." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#16: FILE: ex20.c:16:
++    debug( "I have black hair." );
+
+WARNING: please, no spaces at the start of a line
+#18: FILE: ex20.c:18:
++    // pass argument as printf$
+
+ERROR: do not use C99 // comments
+#18: FILE: ex20.c:18:
++    // pass argument as printf
+
+WARNING: please, no spaces at the start of a line
+#19: FILE: ex20.c:19:
++    debug( "I am %d years old.", 37 );$
+
+ERROR: space prohibited after that open parenthesis '('
+#19: FILE: ex20.c:19:
++    debug( "I am %d years old.", 37 );
+
+ERROR: space prohibited before that close parenthesis ')'
+#19: FILE: ex20.c:19:
++    debug( "I am %d years old.", 37 );
+
+ERROR: Bad function definition - void test_log_err() should probably be void test_log_err(void)
+#23: FILE: ex20.c:23:
++void test_log_err()
+
+WARNING: please, no spaces at the start of a line
+#25: FILE: ex20.c:25:
++    Log_err( "I believe everything is broken." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#25: FILE: ex20.c:25:
++    Log_err( "I believe everything is broken." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#25: FILE: ex20.c:25:
++    Log_err( "I believe everything is broken." );
+
+WARNING: please, no spaces at the start of a line
+#26: FILE: ex20.c:26:
++    Log_err( "There are %d problems in %s.", 22, "space" );$
+
+ERROR: space prohibited after that open parenthesis '('
+#26: FILE: ex20.c:26:
++    Log_err( "There are %d problems in %s.", 22, "space" );
+
+ERROR: space prohibited before that close parenthesis ')'
+#26: FILE: ex20.c:26:
++    Log_err( "There are %d problems in %s.", 22, "space" );
+
+ERROR: Bad function definition - void test_log_warn() should probably be void test_log_warn(void)
+#29: FILE: ex20.c:29:
++void test_log_warn()
+
+WARNING: please, no spaces at the start of a line
+#31: FILE: ex20.c:31:
++    Log_warn( "You can safely ignore this." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#31: FILE: ex20.c:31:
++    Log_warn( "You can safely ignore this." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#31: FILE: ex20.c:31:
++    Log_warn( "You can safely ignore this." );
+
+WARNING: please, no spaces at the start of a line
+#32: FILE: ex20.c:32:
++    Log_warn( "Maybe consider looking at: %s.", "/etc/passwd" );$
+
+ERROR: space prohibited after that open parenthesis '('
+#32: FILE: ex20.c:32:
++    Log_warn( "Maybe consider looking at: %s.", "/etc/passwd" );
+
+ERROR: space prohibited before that close parenthesis ')'
+#32: FILE: ex20.c:32:
++    Log_warn( "Maybe consider looking at: %s.", "/etc/passwd" );
+
+ERROR: Bad function definition - void test_log_info() should probably be void test_log_info(void)
+#35: FILE: ex20.c:35:
++void test_log_info()
+
+WARNING: please, no spaces at the start of a line
+#37: FILE: ex20.c:37:
++    Log_info( "Well i did something mundance." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#37: FILE: ex20.c:37:
++    Log_info( "Well i did something mundance." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#37: FILE: ex20.c:37:
++    Log_info( "Well i did something mundance." );
+
+WARNING: please, no spaces at the start of a line
+#38: FILE: ex20.c:38:
++    Log_info( "It happened %f times today.", 1.3f );$
+
+ERROR: space prohibited after that open parenthesis '('
+#38: FILE: ex20.c:38:
++    Log_info( "It happened %f times today.", 1.3f );
+
+ERROR: space prohibited before that close parenthesis ')'
+#38: FILE: ex20.c:38:
++    Log_info( "It happened %f times today.", 1.3f );
+
+ERROR: "foo * bar" should be "foo *bar"
+#41: FILE: ex20.c:41:
++int test_check( char * fileName )
+
+ERROR: space prohibited after that open parenthesis '('
+#41: FILE: ex20.c:41:
++int test_check( char * fileName )
+
+ERROR: space prohibited before that close parenthesis ')'
+#41: FILE: ex20.c:41:
++int test_check( char * fileName )
+
+WARNING: please, no spaces at the start of a line
+#43: FILE: ex20.c:43:
++    FILE *input = NULL;$
+
+WARNING: please, no spaces at the start of a line
+#44: FILE: ex20.c:44:
++    char *block = NULL;$
+
+WARNING: please, no spaces at the start of a line
+#46: FILE: ex20.c:46:
++    block = malloc( 100 );$
+
+ERROR: space prohibited after that open parenthesis '('
+#46: FILE: ex20.c:46:
++    block = malloc( 100 );
+
+ERROR: space prohibited before that close parenthesis ')'
+#46: FILE: ex20.c:46:
++    block = malloc( 100 );
+
+WARNING: please, no spaces at the start of a line
+#47: FILE: ex20.c:47:
++    check_mem( block ); // should work$
+
+ERROR: do not use C99 // comments
+#47: FILE: ex20.c:47:
++    check_mem( block ); // should work
+
+ERROR: space prohibited after that open parenthesis '('
+#47: FILE: ex20.c:47:
++    check_mem( block ); // should work
+
+ERROR: space prohibited before that close parenthesis ')'
+#47: FILE: ex20.c:47:
++    check_mem( block ); // should work
+
+WARNING: please, no spaces at the start of a line
+#49: FILE: ex20.c:49:
++    input = fopen( fileName, "r" );$
+
+ERROR: space prohibited after that open parenthesis '('
+#49: FILE: ex20.c:49:
++    input = fopen( fileName, "r" );
+
+ERROR: space prohibited before that close parenthesis ')'
+#49: FILE: ex20.c:49:
++    input = fopen( fileName, "r" );
+
+WARNING: please, no spaces at the start of a line
+#50: FILE: ex20.c:50:
++    check( input, "Failed to open %s.", fileName );$
+
+ERROR: space prohibited after that open parenthesis '('
+#50: FILE: ex20.c:50:
++    check( input, "Failed to open %s.", fileName );
+
+ERROR: space prohibited before that close parenthesis ')'
+#50: FILE: ex20.c:50:
++    check( input, "Failed to open %s.", fileName );
+
+WARNING: please, no spaces at the start of a line
+#52: FILE: ex20.c:52:
++    free( block );$
+
+ERROR: space prohibited after that open parenthesis '('
+#52: FILE: ex20.c:52:
++    free( block );
+
+ERROR: space prohibited before that close parenthesis ')'
+#52: FILE: ex20.c:52:
++    free( block );
+
+WARNING: please, no spaces at the start of a line
+#53: FILE: ex20.c:53:
++    fclose( input );$
+
+ERROR: space prohibited after that open parenthesis '('
+#53: FILE: ex20.c:53:
++    fclose( input );
+
+ERROR: space prohibited before that close parenthesis ')'
+#53: FILE: ex20.c:53:
++    fclose( input );
+
+WARNING: please, no spaces at the start of a line
+#54: FILE: ex20.c:54:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#57: FILE: ex20.c:57:
++    if( block ) free( block );$
+
+ERROR: space prohibited after that open parenthesis '('
+#57: FILE: ex20.c:57:
++    if( block ) free( block );
+
+ERROR: space prohibited before that close parenthesis ')'
+#57: FILE: ex20.c:57:
++    if( block ) free( block );
+
+ERROR: space required before the open parenthesis '('
+#57: FILE: ex20.c:57:
++    if( block ) free( block );
+
+ERROR: trailing statements should be on next line
+#57: FILE: ex20.c:57:
++    if( block ) free( block );
+
+WARNING: please, no spaces at the start of a line
+#58: FILE: ex20.c:58:
++    if( input ) fclose( input );$
+
+ERROR: space prohibited after that open parenthesis '('
+#58: FILE: ex20.c:58:
++    if( input ) fclose( input );
+
+ERROR: space prohibited before that close parenthesis ')'
+#58: FILE: ex20.c:58:
++    if( input ) fclose( input );
+
+ERROR: space required before the open parenthesis '('
+#58: FILE: ex20.c:58:
++    if( input ) fclose( input );
+
+ERROR: trailing statements should be on next line
+#58: FILE: ex20.c:58:
++    if( input ) fclose( input );
+
+WARNING: please, no spaces at the start of a line
+#59: FILE: ex20.c:59:
++    return -1;$
+
+ERROR: space prohibited after that open parenthesis '('
+#62: FILE: ex20.c:62:
++int test_sentinel( int code )
+
+ERROR: space prohibited before that close parenthesis ')'
+#62: FILE: ex20.c:62:
++int test_sentinel( int code )
+
+WARNING: please, no spaces at the start of a line
+#64: FILE: ex20.c:64:
++    char *temp = malloc( 100 );$
+
+ERROR: space prohibited after that open parenthesis '('
+#64: FILE: ex20.c:64:
++    char *temp = malloc( 100 );
+
+ERROR: space prohibited before that close parenthesis ')'
+#64: FILE: ex20.c:64:
++    char *temp = malloc( 100 );
+
+WARNING: Missing a blank line after declarations
+#65: FILE: ex20.c:65:
++    char *temp = malloc( 100 );
++    check_mem( temp );
+
+WARNING: please, no spaces at the start of a line
+#65: FILE: ex20.c:65:
++    check_mem( temp );$
+
+ERROR: space prohibited after that open parenthesis '('
+#65: FILE: ex20.c:65:
++    check_mem( temp );
+
+ERROR: space prohibited before that close parenthesis ')'
+#65: FILE: ex20.c:65:
++    check_mem( temp );
+
+WARNING: please, no spaces at the start of a line
+#67: FILE: ex20.c:67:
++    switch( code ) {$
+
+ERROR: switch and case should be at the same indent
+#67: FILE: ex20.c:67:
++    switch( code ) {
++        case 1:
+[...]
++        default:
+
+ERROR: space prohibited after that open parenthesis '('
+#67: FILE: ex20.c:67:
++    switch( code ) {
+
+ERROR: space prohibited before that close parenthesis ')'
+#67: FILE: ex20.c:67:
++    switch( code ) {
+
+ERROR: space required before the open parenthesis '('
+#67: FILE: ex20.c:67:
++    switch( code ) {
+
+ERROR: code indent should use tabs where possible
+#68: FILE: ex20.c:68:
++        case 1:$
+
+WARNING: please, no spaces at the start of a line
+#68: FILE: ex20.c:68:
++        case 1:$
+
+ERROR: code indent should use tabs where possible
+#69: FILE: ex20.c:69:
++            Log_info( "It works." );$
+
+WARNING: please, no spaces at the start of a line
+#69: FILE: ex20.c:69:
++            Log_info( "It works." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#69: FILE: ex20.c:69:
++            Log_info( "It works." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#69: FILE: ex20.c:69:
++            Log_info( "It works." );
+
+ERROR: code indent should use tabs where possible
+#70: FILE: ex20.c:70:
++            break;$
+
+WARNING: please, no spaces at the start of a line
+#70: FILE: ex20.c:70:
++            break;$
+
+ERROR: code indent should use tabs where possible
+#72: FILE: ex20.c:72:
++        default:$
+
+ERROR: code indent should use tabs where possible
+#73: FILE: ex20.c:73:
++            sentinel( "I shouldn't run." );$
+
+WARNING: please, no spaces at the start of a line
+#73: FILE: ex20.c:73:
++            sentinel( "I shouldn't run." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#73: FILE: ex20.c:73:
++            sentinel( "I shouldn't run." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#73: FILE: ex20.c:73:
++            sentinel( "I shouldn't run." );
+
+WARNING: please, no spaces at the start of a line
+#75: FILE: ex20.c:75:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#77: FILE: ex20.c:77:
++    free( temp );$
+
+ERROR: space prohibited after that open parenthesis '('
+#77: FILE: ex20.c:77:
++    free( temp );
+
+ERROR: space prohibited before that close parenthesis ')'
+#77: FILE: ex20.c:77:
++    free( temp );
+
+WARNING: please, no spaces at the start of a line
+#78: FILE: ex20.c:78:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#81: FILE: ex20.c:81:
++    if( temp ) free( temp );$
+
+ERROR: space prohibited after that open parenthesis '('
+#81: FILE: ex20.c:81:
++    if( temp ) free( temp );
+
+ERROR: space prohibited before that close parenthesis ')'
+#81: FILE: ex20.c:81:
++    if( temp ) free( temp );
+
+ERROR: space required before the open parenthesis '('
+#81: FILE: ex20.c:81:
++    if( temp ) free( temp );
+
+ERROR: trailing statements should be on next line
+#81: FILE: ex20.c:81:
++    if( temp ) free( temp );
+
+WARNING: please, no spaces at the start of a line
+#82: FILE: ex20.c:82:
++    return -1;$
+
+ERROR: Bad function definition - int test_check_mem() should probably be int test_check_mem(void)
+#85: FILE: ex20.c:85:
++int test_check_mem()
+
+WARNING: please, no spaces at the start of a line
+#87: FILE: ex20.c:87:
++    char *test = NULL;$
+
+WARNING: Missing a blank line after declarations
+#88: FILE: ex20.c:88:
++    char *test = NULL;
++    check_mem( test );
+
+WARNING: please, no spaces at the start of a line
+#88: FILE: ex20.c:88:
++    check_mem( test );$
+
+ERROR: space prohibited after that open parenthesis '('
+#88: FILE: ex20.c:88:
++    check_mem( test );
+
+ERROR: space prohibited before that close parenthesis ')'
+#88: FILE: ex20.c:88:
++    check_mem( test );
+
+WARNING: please, no spaces at the start of a line
+#90: FILE: ex20.c:90:
++    free( test );$
+
+ERROR: space prohibited after that open parenthesis '('
+#90: FILE: ex20.c:90:
++    free( test );
+
+ERROR: space prohibited before that close parenthesis ')'
+#90: FILE: ex20.c:90:
++    free( test );
+
+WARNING: please, no spaces at the start of a line
+#91: FILE: ex20.c:91:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#94: FILE: ex20.c:94:
++    return -1;$
+
+ERROR: Bad function definition - int test_check_debug() should probably be int test_check_debug(void)
+#97: FILE: ex20.c:97:
++int test_check_debug()
+
+WARNING: please, no spaces at the start of a line
+#99: FILE: ex20.c:99:
++    int i = 0;$
+
+WARNING: Missing a blank line after declarations
+#100: FILE: ex20.c:100:
++    int i = 0;
++    check_debug( i != 0, "Oops, I was 0." );
+
+WARNING: please, no spaces at the start of a line
+#100: FILE: ex20.c:100:
++    check_debug( i != 0, "Oops, I was 0." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#100: FILE: ex20.c:100:
++    check_debug( i != 0, "Oops, I was 0." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#100: FILE: ex20.c:100:
++    check_debug( i != 0, "Oops, I was 0." );
+
+WARNING: please, no spaces at the start of a line
+#102: FILE: ex20.c:102:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#105: FILE: ex20.c:105:
++    return -1;$
+
+WARNING: line over 80 characters
+#117: FILE: ex20.c:117:
++/* ----------------------------------------------------------------------------*/
+
+ERROR: "foo ** bar" should be "foo **bar"
+#118: FILE: ex20.c:118:
++int main( int argc, char ** argv )
+
+ERROR: space prohibited after that open parenthesis '('
+#118: FILE: ex20.c:118:
++int main( int argc, char ** argv )
+
+ERROR: space prohibited before that close parenthesis ')'
+#118: FILE: ex20.c:118:
++int main( int argc, char ** argv )
+
+WARNING: please, no spaces at the start of a line
+#120: FILE: ex20.c:120:
++    check( argc == 2, "Need an argument." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#120: FILE: ex20.c:120:
++    check( argc == 2, "Need an argument." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#120: FILE: ex20.c:120:
++    check( argc == 2, "Need an argument." );
+
+WARNING: please, no spaces at the start of a line
+#122: FILE: ex20.c:122:
++    test_debug();$
+
+WARNING: please, no spaces at the start of a line
+#123: FILE: ex20.c:123:
++    test_log_err();$
+
+WARNING: please, no spaces at the start of a line
+#124: FILE: ex20.c:124:
++    test_log_warn();$
+
+WARNING: please, no spaces at the start of a line
+#125: FILE: ex20.c:125:
++    test_log_info();$
+
+WARNING: please, no spaces at the start of a line
+#127: FILE: ex20.c:127:
++    check( test_check( "ex20.c" ) == 0, "failed with ex20.c." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#127: FILE: ex20.c:127:
++    check( test_check( "ex20.c" ) == 0, "failed with ex20.c." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#127: FILE: ex20.c:127:
++    check( test_check( "ex20.c" ) == 0, "failed with ex20.c." );
+
+WARNING: please, no spaces at the start of a line
+#128: FILE: ex20.c:128:
++    check( test_check( argv[1] ) == 0, "faile with argv." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#128: FILE: ex20.c:128:
++    check( test_check( argv[1] ) == 0, "faile with argv." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#128: FILE: ex20.c:128:
++    check( test_check( argv[1] ) == 0, "faile with argv." );
+
+WARNING: please, no spaces at the start of a line
+#129: FILE: ex20.c:129:
++    check( test_sentinel( 1 ) == 0, "test_sentinel failed ( 1 )." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#129: FILE: ex20.c:129:
++    check( test_sentinel( 1 ) == 0, "test_sentinel failed ( 1 )." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#129: FILE: ex20.c:129:
++    check( test_sentinel( 1 ) == 0, "test_sentinel failed ( 1 )." );
+
+WARNING: please, no spaces at the start of a line
+#130: FILE: ex20.c:130:
++    check( test_sentinel( 100 ) == 0, "test_sentinel failed ( 100 )." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#130: FILE: ex20.c:130:
++    check( test_sentinel( 100 ) == 0, "test_sentinel failed ( 100 )." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#130: FILE: ex20.c:130:
++    check( test_sentinel( 100 ) == 0, "test_sentinel failed ( 100 )." );
+
+WARNING: please, no spaces at the start of a line
+#131: FILE: ex20.c:131:
++    check( test_check_mem() == 0, "test_check_mem failed." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#131: FILE: ex20.c:131:
++    check( test_check_mem() == 0, "test_check_mem failed." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#131: FILE: ex20.c:131:
++    check( test_check_mem() == 0, "test_check_mem failed." );
+
+WARNING: please, no spaces at the start of a line
+#132: FILE: ex20.c:132:
++    check( test_check_debug() == 0, "test_check_debug failed." );$
+
+ERROR: space prohibited after that open parenthesis '('
+#132: FILE: ex20.c:132:
++    check( test_check_debug() == 0, "test_check_debug failed." );
+
+ERROR: space prohibited before that close parenthesis ')'
+#132: FILE: ex20.c:132:
++    check( test_check_debug() == 0, "test_check_debug failed." );
+
+WARNING: please, no spaces at the start of a line
+#136: FILE: ex20.c:136:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#139: FILE: ex20.c:139:
++    return 1;$
+
+total: 95 errors, 60 warnings, 140 lines checked
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+ex20.c has style problems, please review.
+-----
+dbg.h
+-----
+ERROR: space prohibited after that open parenthesis '('
+#17: FILE: dbg.h:17:
++#define debug( M, ... )
+
+ERROR: space prohibited before that close parenthesis ')'
+#17: FILE: dbg.h:17:
++#define debug( M, ... )
+
+WARNING: line over 80 characters
+#19: FILE: dbg.h:19:
++#define debug( M, ... ) fprintf( stderr, "BEBUG %s:%d:%s " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< output debug message
+
+ERROR: do not use C99 // comments
+#19: FILE: dbg.h:19:
++#define debug( M, ... ) fprintf( stderr, "BEBUG %s:%d:%s " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< output debug message
+
+ERROR: space prohibited after that open parenthesis '('
+#19: FILE: dbg.h:19:
++#define debug( M, ... ) fprintf( stderr, "BEBUG %s:%d:%s " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< output debug message
+
+ERROR: space prohibited before that close parenthesis ')'
+#19: FILE: dbg.h:19:
++#define debug( M, ... ) fprintf( stderr, "BEBUG %s:%d:%s " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< output debug message
+
+ERROR: do not use C99 // comments
+#20: FILE: dbg.h:20:
++#endif // NDEBUG
+
+WARNING: line over 80 characters
+#22: FILE: dbg.h:22:
++#define clean_errno() ( errno == 0 ? "None" : strerror( errno ) )		//!< get errno string
+
+ERROR: do not use C99 // comments
+#22: FILE: dbg.h:22:
++#define clean_errno() ( errno == 0 ? "None" : strerror( errno ) )		//!< get errno string
+
+ERROR: space prohibited after that open parenthesis '('
+#22: FILE: dbg.h:22:
++#define clean_errno() ( errno == 0 ? "None" : strerror( errno ) )		//!< get errno string
+
+ERROR: space prohibited before that close parenthesis ')'
+#22: FILE: dbg.h:22:
++#define clean_errno() ( errno == 0 ? "None" : strerror( errno ) )		//!< get errno string
+
+WARNING: line over 80 characters
+#24: FILE: dbg.h:24:
++#define Log_err( M, ... ) fprintf( stderr, "[ERROR] (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log error message
+
+ERROR: do not use C99 // comments
+#24: FILE: dbg.h:24:
++#define Log_err( M, ... ) fprintf( stderr, "[ERROR] (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log error message
+
+ERROR: space prohibited after that open parenthesis '('
+#24: FILE: dbg.h:24:
++#define Log_err( M, ... ) fprintf( stderr, "[ERROR] (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log error message
+
+ERROR: space prohibited before that close parenthesis ')'
+#24: FILE: dbg.h:24:
++#define Log_err( M, ... ) fprintf( stderr, "[ERROR] (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log error message
+
+WARNING: line over 80 characters
+#25: FILE: dbg.h:25:
++#define Log_warn( M, ... ) fprintf( stderr, "[WARN]  (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log warn message
+
+ERROR: do not use C99 // comments
+#25: FILE: dbg.h:25:
++#define Log_warn( M, ... ) fprintf( stderr, "[WARN]  (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log warn message
+
+ERROR: space prohibited after that open parenthesis '('
+#25: FILE: dbg.h:25:
++#define Log_warn( M, ... ) fprintf( stderr, "[WARN]  (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log warn message
+
+ERROR: space prohibited before that close parenthesis ')'
+#25: FILE: dbg.h:25:
++#define Log_warn( M, ... ) fprintf( stderr, "[WARN]  (%s:%d:%s: errno-> %s) " M "\n", __FILE__, __LINE__, __func__, clean_errno(), ##__VA_ARGS__ )	//!< log warn message
+
+WARNING: line over 80 characters
+#26: FILE: dbg.h:26:
++#define Log_info( M, ... ) fprintf( stderr, "[INFO]  (%s:%d:%s) " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< log info message
+
+ERROR: do not use C99 // comments
+#26: FILE: dbg.h:26:
++#define Log_info( M, ... ) fprintf( stderr, "[INFO]  (%s:%d:%s) " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< log info message
+
+ERROR: space prohibited after that open parenthesis '('
+#26: FILE: dbg.h:26:
++#define Log_info( M, ... ) fprintf( stderr, "[INFO]  (%s:%d:%s) " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< log info message
+
+ERROR: space prohibited before that close parenthesis ')'
+#26: FILE: dbg.h:26:
++#define Log_info( M, ... ) fprintf( stderr, "[INFO]  (%s:%d:%s) " M "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__ )	//!< log info message
+
+WARNING: line over 80 characters
+#28: FILE: dbg.h:28:
++#define check( A, M, ... ) if( !( A ) ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< assert and error handing at error: label
+
+ERROR: do not use C99 // comments
+#28: FILE: dbg.h:28:
++#define check( A, M, ... ) if( !( A ) ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< assert and error handing at error: label
+
+ERROR: space prohibited after that open parenthesis '('
+#28: FILE: dbg.h:28:
++#define check( A, M, ... ) if( !( A ) ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< assert and error handing at error: label
+
+ERROR: space prohibited before that close parenthesis ')'
+#28: FILE: dbg.h:28:
++#define check( A, M, ... ) if( !( A ) ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< assert and error handing at error: label
+
+ERROR: space required before the open parenthesis '('
+#28: FILE: dbg.h:28:
++#define check( A, M, ... ) if( !( A ) ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< assert and error handing at error: label
+
+ERROR: Macros with complex values should be enclosed in parentheses
+#28: FILE: dbg.h:28:
++#define check( A, M, ... ) if( !( A ) ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< assert and error handing at error: label
+
+WARNING: line over 80 characters
+#29: FILE: dbg.h:29:
++#define sentinel( M, ... ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }				//!< log sentinel
+
+ERROR: do not use C99 // comments
+#29: FILE: dbg.h:29:
++#define sentinel( M, ... ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }				//!< log sentinel
+
+ERROR: space prohibited after that open parenthesis '('
+#29: FILE: dbg.h:29:
++#define sentinel( M, ... ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }				//!< log sentinel
+
+ERROR: space prohibited before that close parenthesis ')'
+#29: FILE: dbg.h:29:
++#define sentinel( M, ... ) { Log_err( M, ##__VA_ARGS__ ); errno = 0; goto error; }				//!< log sentinel
+
+WARNING: line over 80 characters
+#30: FILE: dbg.h:30:
++#define check_mem( A ) check( A, "Out of memory" )												//!< memory checker
+
+ERROR: do not use C99 // comments
+#30: FILE: dbg.h:30:
++#define check_mem( A ) check( A, "Out of memory" )												//!< memory checker
+
+ERROR: space prohibited after that open parenthesis '('
+#30: FILE: dbg.h:30:
++#define check_mem( A ) check( A, "Out of memory" )												//!< memory checker
+
+ERROR: space prohibited before that close parenthesis ')'
+#30: FILE: dbg.h:30:
++#define check_mem( A ) check( A, "Out of memory" )												//!< memory checker
+
+WARNING: line over 80 characters
+#31: FILE: dbg.h:31:
++#define check_debug( A, M, ... ) if( !( A ) ) { debug( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< debug checher
+
+ERROR: do not use C99 // comments
+#31: FILE: dbg.h:31:
++#define check_debug( A, M, ... ) if( !( A ) ) { debug( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< debug checher
+
+ERROR: space prohibited after that open parenthesis '('
+#31: FILE: dbg.h:31:
++#define check_debug( A, M, ... ) if( !( A ) ) { debug( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< debug checher
+
+ERROR: space prohibited before that close parenthesis ')'
+#31: FILE: dbg.h:31:
++#define check_debug( A, M, ... ) if( !( A ) ) { debug( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< debug checher
+
+ERROR: space required before the open parenthesis '('
+#31: FILE: dbg.h:31:
++#define check_debug( A, M, ... ) if( !( A ) ) { debug( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< debug checher
+
+ERROR: Macros with complex values should be enclosed in parentheses
+#31: FILE: dbg.h:31:
++#define check_debug( A, M, ... ) if( !( A ) ) { debug( M, ##__VA_ARGS__ ); errno = 0; goto error; }	//!< debug checher
+
+ERROR: do not use C99 // comments
+#33: FILE: dbg.h:33:
++#endif // _dbg_h_
+
+total: 35 errors, 9 warnings, 34 lines checked
+
+dbg.h has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.

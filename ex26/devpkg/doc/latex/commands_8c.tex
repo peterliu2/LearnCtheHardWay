@@ -1,0 +1,167 @@
+\hypertarget{commands_8c}{}\section{commands.\+c File Reference}
+\label{commands_8c}\index{commands.\+c@{commands.\+c}}
+
+
+commands  
+
+
+{\ttfamily \#include $<$netdb.\+h$>$}\\*
+{\ttfamily \#include $<$apr\+\_\+uri.\+h$>$}\\*
+{\ttfamily \#include $<$apr\+\_\+fnmatch.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}commands.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../common/include/dbg.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bstrlib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}db.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}shell.\+h\char`\"{}}\\*
+Include dependency graph for commands.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{commands_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{commands_8c_a8f5695cbe4457871b9ac8a7f686e93e9}{Command\+\_\+depends} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em install all depends package for path \end{DoxyCompactList}\item 
+int \hyperlink{commands_8c_affbc6091a8bd093b418d1701bc2f7307}{Command\+\_\+fetch} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$url, int fetch\+\_\+only)
+\begin{DoxyCompactList}\small\item\em fetch package from url \end{DoxyCompactList}\item 
+int \hyperlink{commands_8c_a6910667dba531ef95fc0a445bdbf0141}{Command\+\_\+build} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$url, const char $\ast$configure\+\_\+opts, const char $\ast$make\+\_\+opts, const char $\ast$install\+\_\+opts)
+\begin{DoxyCompactList}\small\item\em build package from url \end{DoxyCompactList}\item 
+int \hyperlink{commands_8c_af384b213993ba94ca4f7e0492a544135}{Command\+\_\+install} (apr\+\_\+pool\+\_\+t $\ast$p, const char $\ast$url, const char $\ast$configure\+\_\+opts, const char $\ast$make\+\_\+opts, const char $\ast$install\+\_\+opts)
+\begin{DoxyCompactList}\small\item\em Install package command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+commands 
+
+\begin{DoxyAuthor}{Author}
+peter liu \href{mailto:peter.liu.work@gmail.com.tw}{\tt peter.\+liu.\+work@gmail.\+com.\+tw} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/04-\/13 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{commands_8c_a6910667dba531ef95fc0a445bdbf0141}{}\index{commands.\+c@{commands.\+c}!Command\+\_\+build@{Command\+\_\+build}}
+\index{Command\+\_\+build@{Command\+\_\+build}!commands.\+c@{commands.\+c}}
+\subsubsection[{Command\+\_\+build}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+build (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{url, }
+\item[{const char $\ast$}]{configure\+\_\+opts, }
+\item[{const char $\ast$}]{make\+\_\+opts, }
+\item[{const char $\ast$}]{install\+\_\+opts}
+\end{DoxyParamCaption}
+)}\label{commands_8c_a6910667dba531ef95fc0a445bdbf0141}
+
+
+build package from url 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em url} & url to build \\
+\hline
+{\em configure\+\_\+opts} & configure options \\
+\hline
+{\em make\+\_\+opts} & make options \\
+\hline
+{\em install\+\_\+opts} & install options\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: build, make, install, cleanup, and database update successfully ~\newline
+{\bfseries -\/1}\+: otherwise 
+\end{DoxyReturn}
+\hypertarget{commands_8c_a8f5695cbe4457871b9ac8a7f686e93e9}{}\index{commands.\+c@{commands.\+c}!Command\+\_\+depends@{Command\+\_\+depends}}
+\index{Command\+\_\+depends@{Command\+\_\+depends}!commands.\+c@{commands.\+c}}
+\subsubsection[{Command\+\_\+depends}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+depends (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{commands_8c_a8f5695cbe4457871b9ac8a7f686e93e9}
+
+
+install all depends package for path 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em path} & depends file path which contains a url per line\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: All dependes are installed successfully ~\newline
+{\bfseries -\/1}\+: Otherwise 
+\end{DoxyReturn}
+\hypertarget{commands_8c_affbc6091a8bd093b418d1701bc2f7307}{}\index{commands.\+c@{commands.\+c}!Command\+\_\+fetch@{Command\+\_\+fetch}}
+\index{Command\+\_\+fetch@{Command\+\_\+fetch}!commands.\+c@{commands.\+c}}
+\subsubsection[{Command\+\_\+fetch}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+fetch (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{url, }
+\item[{int}]{fetch\+\_\+only}
+\end{DoxyParamCaption}
+)}\label{commands_8c_affbc6091a8bd093b418d1701bc2f7307}
+
+
+fetch package from url 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em url} & url to fetch \\
+\hline
+{\em fetch\+\_\+only} & fetch only\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 1}\+: fetch success, need to build \& install ~\newline
+{\bfseries 0}\+: fetch success, nothing to do ~\newline
+{\bfseries -\/1}\+: fetch error 
+\end{DoxyReturn}
+\hypertarget{commands_8c_af384b213993ba94ca4f7e0492a544135}{}\index{commands.\+c@{commands.\+c}!Command\+\_\+install@{Command\+\_\+install}}
+\index{Command\+\_\+install@{Command\+\_\+install}!commands.\+c@{commands.\+c}}
+\subsubsection[{Command\+\_\+install}]{\setlength{\rightskip}{0pt plus 5cm}int Command\+\_\+install (
+\begin{DoxyParamCaption}
+\item[{apr\+\_\+pool\+\_\+t $\ast$}]{p, }
+\item[{const char $\ast$}]{url, }
+\item[{const char $\ast$}]{configure\+\_\+opts, }
+\item[{const char $\ast$}]{make\+\_\+opts, }
+\item[{const char $\ast$}]{install\+\_\+opts}
+\end{DoxyParamCaption}
+)}\label{commands_8c_af384b213993ba94ca4f7e0492a544135}
+
+
+Install package command. 
+
+The package come from input parameter \+: url
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A\+P\+R pool \\
+\hline
+{\em url} & package url \\
+\hline
+{\em configure\+\_\+opts} & configure options \\
+\hline
+{\em make\+\_\+opts} & make options \\
+\hline
+{\em install\+\_\+opts} & install options\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries 0}\+: install sucess ~\newline
+{\bfseries -\/1}\+: install fail 
+\end{DoxyReturn}

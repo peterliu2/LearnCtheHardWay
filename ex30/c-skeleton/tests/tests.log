@@ -1,0 +1,9 @@
+BEBUG tests/libex29_tests.c:35:main ----- RUNNING: ./tests/libex29_tests
+BEBUG tests/libex29_tests.c:27:all_tests 
+----- test_dlopen
+BEBUG tests/libex29_tests.c:28:all_tests 
+----- test_functions
+BEBUG tests/libex29_tests.c:29:all_tests 
+----- test_failures
+BEBUG tests/libex29_tests.c:30:all_tests 
+----- test_dlclose

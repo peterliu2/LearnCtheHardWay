@@ -1,0 +1,86 @@
+\subsubsection*{N\+A\+M\+E}
+
+devpkg -- Simple package management utility
+
+\subsubsection*{S\+Y\+N\+O\+P\+S\+I\+S}
+
+
+\begin{DoxyCode}
+1 devpkg -I url | -L | -c configure-options | -m make-options | -i install-options | -d path | -S | -F url -B
+       url
+\end{DoxyCode}
+
+
+\subsubsection*{D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N}
+
+The {\bfseries devpkg} helps to {\itshape fetch}, {\itshape configure}, {\itshape build} and {\itshape install} packages in forms of {\ttfamily .tar.\+gz}, {\ttfamily .tar.\+bz2} and {\ttfamily .git} from internet.
+
+\begin{quote}
+You {\bfseries M\+U\+S\+T} use {\ttfamily devpkg -\/\+S} to initalize the data base first. \end{quote}
+
+
+\subsubsection*{F\+U\+N\+C\+T\+I\+O\+N L\+E\+T\+T\+E\+R\+S}
+
+{\ttfamily -\/\+I url}~\newline
+ Install package from {\ttfamily url}, it will fetch, configure, make, install then clean up the fetch source code and other build-\/phase temporatily files
+
+{\ttfamily -\/\+L}~\newline
+ List urls of the installed packages if any
+
+{\ttfamily -\/c configure-\/options}~\newline
+ Setup the ./configure opruons
+
+{\ttfamily -\/m make-\/options}~\newline
+ Setup the make options
+
+{\ttfamily -\/i install-\/options}~\newline
+ Setup install options
+
+{\ttfamily -\/d path}~\newline
+ Install all urls in the \textquotesingle{}path\textquotesingle{} file, which contains url per line to install~\newline
+ If You fetch depents file from internet, the file M\+U\+S\+T be {\ttfamily $\ast$.D\+E\+P\+E\+N\+D\+S}
+
+{\ttfamily -\/\+S}~\newline
+ Initalize the data base to store package urls which are installed
+
+{\ttfamily -\/\+F url}~\newline
+ Fetch the package source code from {\ttfamily url}
+
+{\ttfamily -\/\+B url}~\newline
+ Configure and Build the package of {\ttfamily url}
+
+\subsubsection*{E\+N\+V\+I\+R\+O\+N\+M\+E\+N\+T}
+
+The {\ttfamily devpkg -\/\+S} will creates a database file at {\ttfamily /usr/local/.devpkg/db}, which will record the installed package\textquotesingle{}s urls.~\newline
+When {\ttfamily fetch}, {\ttfamily build} or {\ttfamily install} package, the package compressed source code is at /tmp/pkg-\/src.tar.\mbox{[}gz$\vert$bz2\mbox{]}, and the build-\/phase temporatily files is at /tmp/pkg-\/build. After install the package, those two directorues will be cleanup.
+
+\subsubsection*{E\+X\+A\+M\+P\+L\+E}
+
+Fetch package source from url\+: {\ttfamily foo.\+bar}. 
+\begin{DoxyCode}
+1 devpkg -F foo.bar
+\end{DoxyCode}
+
+
+Install package from url\+: {\ttfamily foo.\+bar} using configure options\+:{\ttfamily c-\/opts}, make options\+: {\ttfamily m-\/opts}, install options\+: {\ttfamily i-\/opts}. 
+\begin{DoxyCode}
+1 devpkg -c c-opts -m m-opts -i i-opts -I foo.bar
+\end{DoxyCode}
+
+
+List package we have installed if any. 
+\begin{DoxyCode}
+1 devpkg -L
+\end{DoxyCode}
+
+
+\subsubsection*{B\+U\+G\+S}
+
+\subsubsection*{T\+O\+D\+O}
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Some packages need ./autoconfig, but we don\textquotesingle{}t implement it.
+\item \mbox{[} \mbox{]} {\ttfamily devpkg -\/d xxx.\+D\+E\+P\+E\+N\+D\+S} can\textquotesingle{}t input configure options, make options, and install options.
+\item \mbox{[} \mbox{]} Don\textquotesingle{}t check the integrity(ex. md5). 
+\end{DoxyItemize}

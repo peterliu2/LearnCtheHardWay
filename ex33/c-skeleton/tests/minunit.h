@@ -10,7 +10,7 @@
 #define _minunit_h_
 
 #include <stdio.h>
-#include "dbg.h"
+#include <lcthw/dbg.h>
 #include <stdlib.h>
 
 #define mu_suit_start() char *message = NULL
@@ -20,10 +20,11 @@
 	message = test(); test_run++; if (message) return message;
 
 #define RUN_TESTS(name) int main(int argc, char *argv[]) {	\
+	(void)argc;												\
 	argc = 1;												\
-	debug("----- RUNNING: %s", argv[0]);					\
+	printf("----- \nRUNNING: \"%s\"\n", argv[0]);				\
 	char *result = name();									\
-	if (result != 0) {										\
+	if (result != NULL) {									\
 		printf("FAILED: %s\n", result);						\
 	} else {												\
 		printf("ALL TESTS PASSED\n");						\
